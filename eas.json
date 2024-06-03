@@ -11,9 +11,6 @@
         "image": "latest"
       },
       "android": {
-        "environment": {
-          "CLEARTXT_TRAFFIC_PERMITTED": "true"
-        },
         "buildType": "apk",
         "image": "latest"
       },
