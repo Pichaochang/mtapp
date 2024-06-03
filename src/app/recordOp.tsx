@@ -140,7 +140,7 @@ export default function RecordList() {
 
         {/* <View /> */}
       </View>
-      <ScrollView className="bg-[#f1f4f6]">
+      <ScrollView className="bg-[#f1f4f6] dark:bg-[#0e0e0e]">
         <SafeAreaView className="flex-1">
           <View className=" bg-white px-4  py-2  dark:bg-[#18191B] ">
             <View className="flex flex-row items-center justify-between">
