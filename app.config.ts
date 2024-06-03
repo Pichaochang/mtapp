@@ -56,6 +56,10 @@ export default ({ config }: ConfigContext): ExpoConfig => ({
       {
         android: {
           usesCleartextTraffic: true,
+          cleartext: {
+            cleartextTrafficPermitted: true,
+          },
+          cleartextTrafficPermitted: true,
           kotlinVersion: '1.7.22', // this is for softinput package
         },
       },
