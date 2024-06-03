@@ -51,10 +51,11 @@ export default function Feed() {
       backgroundColor: '#0553',
     },
   });
+  // eslint-disable-next-line react/no-unstable-nested-components
   const ThinLine = () => {
     return (
       <View
-        className="mt-2 border-[#f2f4f6] dark:border-[#f1f4f6]"
+        className="mt-2 border-[#e7e7e7] dark:border-[#f1f4f6]"
         style={styles.line}
       />
     );
@@ -438,7 +439,7 @@ export default function Feed() {
                       </Text>
                       <View>
                         <View className="text-right text-[#3b3b3b] dark:text-[#fff]">
-                          <Text>{item.quantity}</Text>
+                          <Text className="text-right">{item.quantity}</Text>
                         </View>
                         <Text className="text-right text-xs text-[#a7a7a7] dark:text-[#717172]">
                           ≈¥{item.valuation}
