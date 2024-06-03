@@ -35,6 +35,7 @@ export default ({ config }: ConfigContext): ExpoConfig => ({
       foregroundImage: './assets/adaptive-icon.png',
       backgroundColor: '#2E3C4B',
     },
+
     package: Env.PACKAGE,
   },
   web: {
@@ -54,6 +55,7 @@ export default ({ config }: ConfigContext): ExpoConfig => ({
       'expo-build-properties',
       {
         android: {
+          usesCleartextTraffic: true,
           kotlinVersion: '1.7.22', // this is for softinput package
         },
       },
