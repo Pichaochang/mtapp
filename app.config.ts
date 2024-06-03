@@ -18,7 +18,7 @@ export default ({ config }: ConfigContext): ExpoConfig => ({
   //   cleartextTrafficPermitted: true,
   // },
   splash: {
-    image: './assets/favicon.png',
+    image: './assets/splash.png',
     resizeMode: 'contain',
     backgroundColor: '#2E3C4B',
   },
