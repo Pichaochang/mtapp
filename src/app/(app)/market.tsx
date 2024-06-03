@@ -12,7 +12,7 @@ import {
   Text,
   View,
 } from '@/ui';
-import { ArrowBottom, LiriIcon, MenuIcon } from '@/ui/icons';
+import { ArrowBottom, LiriIcon, MenuuuuIcon } from '@/ui/icons';
 
 // eslint-disable-next-line max-lines-per-function
 export default function Market() {
@@ -49,7 +49,7 @@ export default function Market() {
           </View>
         </View>
         <View className="flex-0 flex h-full flex-row items-center justify-end">
-          <MenuIcon className="ml-3" color={iconColor} />
+          <MenuuuuIcon className="ml-3" color={iconColor} />
         </View>
       </View>
       <ScrollView className="px-4 dark:bg-[#18191b] ">

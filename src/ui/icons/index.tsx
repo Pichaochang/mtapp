@@ -44,3 +44,4 @@ export * from './home/WalletIcon';
 // market
 export * from './market/arrow-bottom';
 export * from './market/liri';
+export * from './market/menuuuuIcon';
