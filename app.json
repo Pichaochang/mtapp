@@ -1,0 +1,11 @@
+{
+  "expo": {
+    "android": {
+      "config": {
+        "cleartext": {
+          "cleartextTrafficPermitted": true
+        }
+      }
+    }
+  }
+}
