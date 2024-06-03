@@ -160,7 +160,7 @@ export default function Feed() {
         getHomeData(item);
       }}
     >
-      <Text>{item.name}</Text>
+      <Text>{chain.chainName}</Text>
       <View className="flex flex-row items-center ">
         <Text className="text-[#38393a] dark:text-[#38393a] ">
           {formatAddress(item.address)}

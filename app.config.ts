@@ -35,10 +35,11 @@ export default ({ config }: ConfigContext): ExpoConfig => ({
     typedRoutes: true,
   },
   android: {
+    icon: './assets/favicon.png',
+
     adaptiveIcon: {
-      backgroundColor: '#fff',
-      backgroundImage: '',
-      foregroundImage: './assets/favicon.png',
+      backgroundImage: './assets/favicon.png',
+      // foregroundImage: './assets/favicon.png',
     },
     package: Env.PACKAGE,
   },
