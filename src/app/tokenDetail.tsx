@@ -144,7 +144,7 @@ export default function RecordList() {
 
         {/* <View /> */}
       </View>
-      <ScrollView className="bg-[#f1f4f6]">
+      <ScrollView className="bg-[#f1f4f6] dark:bg-[#0e0e0e]">
         <SafeAreaView className="flex-1 ">
           <View className="bg-[#fff] px-4 py-2 dark:bg-[#18191B] ">
             <View className="flex flex-row items-center justify-between">
@@ -196,8 +196,9 @@ export default function RecordList() {
               </View>
             </View>
           </View>
+          {/* dark:bg-[#18191B] */}
 
-          <View className="my-4 flex w-full flex-row items-center justify-between  bg-[#fff] px-4 text-[#3b3b3b] dark:text-[#fff]">
+          <View className="my-4 flex w-full flex-row items-center justify-between  bg-[#fff] px-4 text-[#3b3b3b] dark:bg-[#18191B] dark:text-[#fff]">
             <View className="flex  flex-row items-center">
               {/* border-b-2 border-[#717172]  dark:border-[#ffffff]"*/}
               <View className="mr-3 flex items-center py-2 text-lg">
@@ -223,7 +224,7 @@ export default function RecordList() {
           </View>
 
           {/* token list */}
-          <View className="w-full bg-[#fff] px-4">
+          <View className="w-full bg-[#fff] px-4 dark:bg-[#18191B]">
             <View className="flex  w-full flex-row items-center justify-center">
               <Image
                 className="flex-0  my-2 mr-3 h-10 w-10 rounded-[20px]"
