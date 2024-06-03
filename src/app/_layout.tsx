@@ -10,8 +10,7 @@ import {
 } from '@react-navigation/native';
 import { Stack } from 'expo-router';
 // import { Stack, useNavigationContainerRef } from 'expo-router';
-import { SplashScreen } from 'expo-splash-screen';
-import { useEffect } from 'react';
+// import { SplashScreen } from 'expo-splash-screen';
 import { StyleSheet } from 'react-native';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 
@@ -30,9 +29,9 @@ loadSelectedTheme();
 // SplashScreen.preventAutoHideAsync();
 
 export default function RootLayout() {
-  useEffect(() => {
-    SplashScreen.hide();
-  }, []);
+  // useEffect(() => {
+  //   SplashScreen.hide();
+  // }, []);
   const navigationRef = useNavigationContainerRef();
   useReactNavigationDevTools(navigationRef);
   return <RootLayoutNav />;
