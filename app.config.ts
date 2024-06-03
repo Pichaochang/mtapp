@@ -16,7 +16,7 @@ export default ({ config }: ConfigContext): ExpoConfig => ({
   userInterfaceStyle: 'automatic',
   splash: {
     image: './assets/splash.png',
-    resizeMode: 'cover',
+    resizeMode: 'contain',
     backgroundColor: '#2E3C4B',
   },
   updates: {
@@ -56,10 +56,6 @@ export default ({ config }: ConfigContext): ExpoConfig => ({
       {
         android: {
           usesCleartextTraffic: true,
-          cleartext: {
-            cleartextTrafficPermitted: true,
-          },
-          cleartextTrafficPermitted: true,
           kotlinVersion: '1.7.22', // this is for softinput package
         },
       },
