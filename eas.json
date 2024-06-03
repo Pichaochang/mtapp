@@ -11,6 +11,7 @@
         "image": "latest"
       },
       "android": {
+        "icon": "",
         "buildType": "apk",
         "image": "latest"
       },
@@ -53,6 +54,7 @@
         "image": "latest"
       },
       "android": {
+        "icon": "",
         "image": "latest"
       },
       "env": {

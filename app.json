@@ -4,10 +4,10 @@
       "config": {
         "cleartext": {
           "cleartextTrafficPermitted": true
-        },
-        "android": {
-          "icon": null
         }
+      },
+      "android": {
+        "icon": null
       }
     }
   }
