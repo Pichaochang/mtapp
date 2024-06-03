@@ -7,9 +7,9 @@ import { isRTL } from '@/core';
 
 export const MenuuuuIcon = ({ color = '#CCC', style, ...props }: SvgProps) => (
   <Svg
-    width={9}
-    height={9}
-    viewBox="0 0 14 14"
+    width={20}
+    height={20}
+    viewBox="0 0 40 40"
     fill="none"
     {...props}
     style={StyleSheet.flatten([
