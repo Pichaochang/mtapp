@@ -417,10 +417,7 @@ export default function Feed() {
                   <Image
                     className="flex-0  my-2 mr-3 h-[40x] w-[40px] rounded-[20px]"
                     source={{
-                      // uri: item.imgUrl,
-                      // uri: 'https://images.unsplash.com/photo-1515386474292-47555758ef2e?auto=format&fit=crop&w=800&q=80',
-                      uri: 'https://img2.imgtp.com/2024/06/01/ho3GpugY.png',
-                      // https://img2.imgtp.com/2024/06/01/ho3GpugY.png
+                      uri: item.imgUrl,
                     }}
                     style={{
                       height: 40,
