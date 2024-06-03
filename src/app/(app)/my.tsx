@@ -31,7 +31,7 @@ export default function MyPage() {
         </View>
         <View className="flex  w-1/3  flex-row items-center justify-end">
           <ThemeItem />
-          <Ring className="ml-5" color="#000" />
+          <Ring className="ml-5" color={iconColor} />
         </View>
       </View>
       <ScrollView className=" dark:bg-[#0e0e0e]">

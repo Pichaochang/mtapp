@@ -5,7 +5,7 @@ import Svg, { Path } from 'react-native-svg';
 
 import { isRTL } from '@/core';
 
-export const Liri = ({ color = '#CCC', style, ...props }: SvgProps) => (
+export const LiriIcon = ({ color = '#CCC', style, ...props }: SvgProps) => (
   <Svg
     width={20}
     height={20}

@@ -12,7 +12,7 @@ import {
   Text,
   View,
 } from '@/ui';
-import { ArrowBottom, MenuIcon, ScanIcon } from '@/ui/icons';
+import { ArrowBottom, LiriIcon, MenuIcon } from '@/ui/icons';
 
 // eslint-disable-next-line max-lines-per-function
 export default function Market() {
@@ -37,7 +37,7 @@ export default function Market() {
       {/* 头部 */}
       <View className="flex h-20 flex-row items-center justify-between px-4 pt-12  dark:bg-[#18191b] ">
         <View className="flex-0 flex h-full flex-row items-center">
-          <ScanIcon className="" color={iconColor} />
+          <LiriIcon className="" color={iconColor} />
         </View>
         <View className="flex h-full w-full flex-1 flex-row items-center justify-center text-[#3b3b3b] dark:text-[#fff]">
           <View className="flex flex-row items-center">
