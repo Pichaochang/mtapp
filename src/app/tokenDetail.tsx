@@ -2,9 +2,11 @@
 /* eslint-disable max-lines-per-function */
 import { useRouter } from 'expo-router';
 import { useColorScheme } from 'nativewind';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { StyleSheet, TouchableOpacity } from 'react-native';
 
+import { getTxList } from '@/api';
+import { getItem } from '@/core/storage';
 import {
   colors,
   FocusAwareStatusBar,
@@ -36,9 +38,25 @@ export default function RecordList() {
       </Radio.Root>
     );
   };
+  const [sssswalet, setsssswalet] = useState({});
   const { ref: ref1, present: present1, dismiss: dismiss1 } = useModal();
   const { ref: ref2, present: present2, dismiss: dismiss2 } = useModal();
+  const [list, setList] = useState([]);
+  const initData = async () => {
+    const chainId = (getItem('selectChain') || {}).chainId;
+    const address = (getItem('selectWallet') || {}).address;
+    console.log('selectChain-selectWallet', chainId, address);
 
+    const { data } = await getTxList(chainId, address);
+    setList(data || []);
+    console.log('getTxList', data);
+  };
+  useEffect(() => {
+    const s: any = getItem('sssswalet') || {};
+    setsssswalet(s);
+    console.log('sadsad', s);
+    initData();
+  }, []);
   const router = useRouter();
 
   // const { data, isPending, isError } = usePosts();
@@ -73,6 +91,13 @@ export default function RecordList() {
         style={styles.line}
       />
     );
+  };
+  const formatAddress = (address: string) => {
+    if (!address) return;
+    return `${address.slice(0, 6)}...${address.slice(
+      address.length - 6,
+      address.length
+    )}`;
   };
   const styles2 = StyleSheet.create({
     container: {
@@ -152,10 +177,10 @@ export default function RecordList() {
                 <Image
                   className="flex-0  my-2 mr-3 h-10 w-10 rounded-[20px]"
                   source={{
-                    uri: 'https://img2.imgtp.com/2024/06/01/ho3GpugY.png',
+                    uri: sssswalet.imgUrl,
                   }}
                 />
-                <Text>BNB</Text>
+                <Text>{sssswalet.assetName}</Text>
               </View>
               <View className="flex flex-row items-center justify-end">
                 <Text className="mr-3 text-left text-xs text-[#a7a7a7] dark:text-[#717172]">
@@ -224,36 +249,41 @@ export default function RecordList() {
           </View>
 
           {/* token list */}
-          <View className="w-full bg-[#fff] px-4 dark:bg-[#18191B]">
-            <View className="flex  w-full flex-row items-center justify-center">
-              <Image
-                className="flex-0  my-2 mr-3 h-10 w-10 rounded-[20px]"
-                source={{
-                  uri: 'https://img2.imgtp.com/2024/06/01/ho3GpugY.png',
-                }}
-              />
-              <View className=" w-full flex-1 border-b border-[#717172] py-2	dark:border-[#232428]">
-                <TouchableOpacity className="flex  flex-row items-center justify-between">
-                  <View>
-                    <View className="flex flex-row items-center justify-center text-right text-[#3b3b3b] dark:text-[#fff]">
-                      <Text className="text-[#3b3b3b] dark:text-[#fff]">
-                        0xF715f...f974B3cd
+          {list.map((item, index) => (
+            <View
+              key={index}
+              className="w-full bg-[#fff] px-4 dark:bg-[#18191B]"
+            >
+              <View className="flex  w-full flex-row items-center justify-center">
+                <Image
+                  className="flex-0  my-2 mr-3 h-10 w-10 rounded-[20px]"
+                  source={{
+                    uri: sssswalet.imgUrl,
+                  }}
+                />
+                <View className=" w-full flex-1 border-b border-[#717172] py-2	dark:border-[#232428]">
+                  <TouchableOpacity className="flex  flex-row items-center justify-between">
+                    <View>
+                      <View className="flex flex-row items-center justify-center text-right text-[#3b3b3b] dark:text-[#fff]">
+                        <Text className="text-[#3b3b3b] dark:text-[#fff]">
+                          {formatAddress(item.transtionHash)}
+                        </Text>
+                        <CopyIcon className="ml-1 text-xs" color={iconColor} />
+                      </View>
+                      <Text className="text-left text-xs text-[#a7a7a7] dark:text-[#717172]">
+                        {item.createdAt}
                       </Text>
-                      <CopyIcon className="ml-1 text-xs" color={iconColor} />
                     </View>
-                    <Text className="text-left text-xs text-[#a7a7a7] dark:text-[#717172]">
-                      01/02 23:05:11
-                    </Text>
-                  </View>
-                  <View>
-                    <View className="text-right text-[#3b3b3b] dark:text-[#fff]">
-                      <Text>0.006556</Text>
+                    <View>
+                      <View className="text-right text-[#3b3b3b] dark:text-[#fff]">
+                        <Text>0.006556</Text>
+                      </View>
                     </View>
-                  </View>
-                </TouchableOpacity>
+                  </TouchableOpacity>
+                </View>
               </View>
             </View>
-          </View>
+          ))}
         </SafeAreaView>
       </ScrollView>
       <BottomButton

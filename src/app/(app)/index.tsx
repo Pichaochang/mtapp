@@ -430,6 +430,8 @@ export default function Feed() {
                   <View className=" w-full flex-1  py-2	dark:border-[#232428]">
                     <TouchableOpacity
                       onPress={() => {
+                        console.log('myw', item);
+                        setItem('sssswalet', item);
                         router.push('/tokenDetail');
                       }}
                       className="flex  flex-row items-center justify-between"
