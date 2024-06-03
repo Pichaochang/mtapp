@@ -14,11 +14,14 @@ export default ({ config }: ConfigContext): ExpoConfig => ({
   orientation: 'portrait',
   icon: './assets/icon.png',
   userInterfaceStyle: 'automatic',
-  // splash: {
-  //   image: './assets/splash.png',
-  //   resizeMode: 'contain',
-  //   backgroundColor: '#2E3C4B',
+  // cleartext: {
+  //   cleartextTrafficPermitted: true,
   // },
+  splash: {
+    image: './assets/adaptive-icon.png',
+    resizeMode: 'contain',
+    backgroundColor: '#2E3C4B',
+  },
   updates: {
     fallbackToCacheTimeout: 0,
   },

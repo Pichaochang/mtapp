@@ -4,8 +4,14 @@ import '../../global.css';
 
 import { useReactNavigationDevTools } from '@dev-plugins/react-navigation';
 import { BottomSheetModalProvider } from '@gorhom/bottom-sheet';
-import { ThemeProvider } from '@react-navigation/native';
-import { Stack, useNavigationContainerRef } from 'expo-router';
+import {
+  ThemeProvider,
+  useNavigationContainerRef,
+} from '@react-navigation/native';
+import { Stack } from 'expo-router';
+// import { Stack, useNavigationContainerRef } from 'expo-router';
+import { SplashScreen } from 'expo-splash-screen';
+import { useEffect } from 'react';
 import { StyleSheet } from 'react-native';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 
@@ -24,6 +30,9 @@ loadSelectedTheme();
 // SplashScreen.preventAutoHideAsync();
 
 export default function RootLayout() {
+  useEffect(() => {
+    SplashScreen.hide();
+  }, []);
   const navigationRef = useNavigationContainerRef();
   useReactNavigationDevTools(navigationRef);
   return <RootLayoutNav />;
