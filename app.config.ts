@@ -21,6 +21,7 @@ export default ({ config }: ConfigContext): ExpoConfig => ({
     image: './assets/splash.png',
     resizeMode: 'contain',
     backgroundColor: '#2E3C4B',
+    foregroundImage: '',
   },
   updates: {
     fallbackToCacheTimeout: 0,
@@ -34,10 +35,7 @@ export default ({ config }: ConfigContext): ExpoConfig => ({
     typedRoutes: true,
   },
   android: {
-    adaptiveIcon: {
-      backgroundImage: './assets/adaptive-icon.png',
-      backgroundColor: '#fff',
-    },
+    // adaptiveIcon: {},
     package: Env.PACKAGE,
   },
   web: {
