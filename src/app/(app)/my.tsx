@@ -24,7 +24,7 @@ export default function MyPage() {
 
   return (
     <>
-      <View className="mt-6 flex h-14 flex-row items-center justify-between bg-[#f1f4f6] px-4 dark:bg-[#18191b]">
+      <View className="mt-6 flex h-14 flex-row items-center justify-between bg-[#fff] px-4 dark:bg-[#18191b]">
         <Text className="w-1/3 text-black" />
         <View className="flex  w-1/3 items-center justify-center">
           <Text className="text-center text-black">我的</Text>
@@ -34,71 +34,71 @@ export default function MyPage() {
           <Ring className="ml-5" color={iconColor} />
         </View>
       </View>
-      <ScrollView className=" dark:bg-[#0e0e0e]">
+      <ScrollView className="bg-[#f1f4f6] dark:bg-[#0e0e0e]">
         <SafeAreaView className=" flex-1">
           {/* 第一部分 */}
-          <View className="mb-2 flex flex-col bg-[#f1f4f6]  px-4 dark:bg-[#18191B]">
+          <View className="mb-2 flex flex-col bg-[#fff]  px-4 dark:bg-[#18191B]">
             <View className="flex h-14 w-full flex-row items-center justify-between">
               <View className="flex flex-row items-center justify-between">
                 <AssetIcon className="text-base" color={iconColor} />
                 <Text className="ml-2 text-base">资产总览</Text>
               </View>
-              <ArrowRight className="text-base" color={iconColor} />
+              <ArrowRight width={14} className="text-base" color={iconColor} />
             </View>
             <View className="flex h-14 w-full flex-row items-center justify-between">
               <View className="flex flex-row items-center justify-between">
                 <WalletAdmiinIcon className="text-base" color={iconColor} />
                 <Text className="ml-2 text-base">钱包管理</Text>
               </View>
-              <ArrowRight className="text-base" color={iconColor} />
+              <ArrowRight width={14} className="text-base" color={iconColor} />
             </View>
             <View className="flex h-14 w-full flex-row items-center justify-between">
               <View className="flex flex-row items-center justify-between">
                 <RecordIcon className="text-base" color={iconColor} />
                 <Text className="ml-2 text-base">交易记录</Text>
               </View>
-              <ArrowRight className="text-base" color={iconColor} />
+              <ArrowRight width={14} className="text-base" color={iconColor} />
             </View>
           </View>
 
-          <View className="my-2 flex flex-col bg-[#f1f4f6]  px-4 dark:bg-[#18191B]">
+          <View className="my-2 flex flex-col bg-[#fff]  px-4 dark:bg-[#18191B]">
             <View className="flex h-14 w-full flex-row items-center justify-between">
               <View className="flex flex-row items-center justify-between">
                 <AddressIcon className="text-base" color={iconColor} />
                 <Text className="ml-2 text-base">地址簿</Text>
               </View>
-              <ArrowRight className="text-base" color={iconColor} />
+              <ArrowRight width={14} className="text-base" color={iconColor} />
             </View>
           </View>
 
-          <View className="my-2 flex flex-col bg-[#f1f4f6]  px-4 dark:bg-[#18191B]">
+          <View className="my-2 flex flex-col bg-[#fff]  px-4 dark:bg-[#18191B]">
             <View className="flex h-14 w-full flex-row items-center justify-between">
               <View className="flex flex-row items-center justify-between">
                 <FreiendIcon className="text-base" color={iconColor} />
                 <Text className="ml-2 text-base">邀请好友</Text>
               </View>
-              <ArrowRight className="text-base" color={iconColor} />
+              <ArrowRight width={14} className="text-base" color={iconColor} />
             </View>
             <View className="flex h-14 w-full flex-row items-center justify-between">
               <View className="flex flex-row items-center justify-between">
                 <WalletzyIcon className="text-base" color={iconColor} />
                 <Text className="ml-2 text-base">钱包指引</Text>
               </View>
-              <ArrowRight className="text-base" color={iconColor} />
+              <ArrowRight width={14} className="text-base" color={iconColor} />
             </View>
             <View className="flex h-14 w-full flex-row items-center justify-between">
               <View className="flex flex-row items-center justify-between">
                 <AboutUsIcon className="text-base" color={iconColor} />
                 <Text className="ml-2 text-base">关于我们</Text>
               </View>
-              <ArrowRight className="text-base" color={iconColor} />
+              <ArrowRight width={14} className="text-base" color={iconColor} />
             </View>
             <View className="flex h-14 w-full flex-row items-center justify-between">
               <View className="flex flex-row items-center justify-between">
                 <SettingIcon className="text-base" color={iconColor} />
                 <Text className="ml-2 text-base">系统设置</Text>
               </View>
-              <ArrowRight className="text-base" color={iconColor} />
+              <ArrowRight width={14} className="text-base" color={iconColor} />
             </View>
           </View>
         </SafeAreaView>
