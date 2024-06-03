@@ -4,6 +4,9 @@
       "config": {
         "cleartext": {
           "cleartextTrafficPermitted": true
+        },
+        "android": {
+          "icon": null
         }
       }
     }
