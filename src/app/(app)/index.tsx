@@ -441,7 +441,7 @@ export default function Feed() {
                           <Text>{item.quantity}</Text>
                         </View>
                         <Text className="text-right text-xs text-[#a7a7a7] dark:text-[#717172]">
-                          ≈¥{item.quantity}
+                          ≈¥{item.valuation}
                         </Text>
                       </View>
                     </TouchableOpacity>
