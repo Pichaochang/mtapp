@@ -149,7 +149,7 @@ export default function Feed() {
     }
   };
   const walletItem = (item, index): any => (
-    <View
+    <TouchableOpacity
       key={index}
       className="mb-2 rounded-[8px] bg-slate-500 p-4 dark:bg-[#18191b]"
       onPress={() => {
@@ -172,7 +172,7 @@ export default function Feed() {
         &nbsp;
         {chain.ethName}
       </Text>
-    </View>
+    </TouchableOpacity>
   );
   return (
     <>
