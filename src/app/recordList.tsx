@@ -70,14 +70,14 @@ export default function RecordList() {
 
         {/* <View /> */}
       </View>
-      <ScrollView className="px-4">
+      <ScrollView className="bg-[#f7f7f7] px-4 dark:bg-[#0e0e0e]">
         <SafeAreaView className="flex-1">
-          <View className="flex flex-row items-center justify-around">
+          <View className="flex flex-row items-center justify-around ">
             <TouchableOpacity
               onPress={() => {
                 router.push('/recordOp');
               }}
-              className="flex flex-1 flex-col  items-center justify-center  rounded-[4px]  bg-[#f1f4f6] py-4 dark:bg-[#18191b]"
+              className="flex flex-1 flex-col  items-center justify-center  rounded-[4px]  bg-white py-4 dark:bg-[#18191b]"
             >
               <Image
                 className="flex-0  h-10 w-10 "
@@ -90,7 +90,7 @@ export default function RecordList() {
               onPress={() => {
                 router.push('/recordOp');
               }}
-              className="ml-4 flex flex-1 flex-col items-center justify-center rounded-[4px]  bg-[#f1f4f6] py-4 dark:bg-[#18191b]"
+              className="ml-4 flex flex-1 flex-col items-center justify-center rounded-[4px]  bg-white py-4 dark:bg-[#18191b]"
             >
               <Image
                 className="flex-0 h-10 w-10 "
@@ -102,7 +102,7 @@ export default function RecordList() {
               onPress={() => {
                 router.push('/recordOp');
               }}
-              className="ml-4 flex flex-1 flex-col items-center  justify-center rounded-[4px]  bg-[#f1f4f6] py-4 dark:bg-[#18191b]"
+              className="ml-4 flex flex-1 flex-col items-center  justify-center rounded-[4px]  bg-white py-4 dark:bg-[#18191b]"
             >
               <Image
                 className="flex-0  h-10 w-10 "
@@ -112,11 +112,14 @@ export default function RecordList() {
             </TouchableOpacity>
           </View>
 
-          <View className="mt-2 rounded-[4px] bg-[#f1f4f6]  p-4 dark:bg-[#18191b]">
-            <Text className="">最近转账</Text>
+          <View className="mt-2 bg-[#f1f4f6]  p-4 dark:bg-[#18191b]">
+            <Text className="my-2 font-bold">最近转账</Text>
             {list.map((item, index) => {
               return (
-                <View key={index} className="py-4">
+                <View
+                  key={index}
+                  className=" bg-white px-2 py-4 dark:bg-[#18191b]"
+                >
                   <Text>{item.transtionHash}</Text>
                   <Text className="text-xs dark:text-[#747575]">
                     {item.createdAt}

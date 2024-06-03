@@ -107,7 +107,9 @@ export default function RecordList() {
           onPress={onPress}
           style={styles2.button}
         >
-          <Text style={styles2.buttonText}>确认</Text>
+          <Text className="text-white" style={styles2.buttonText}>
+            确认
+          </Text>
         </TouchableOpacity>
       </View>
     );
@@ -138,9 +140,9 @@ export default function RecordList() {
 
         {/* <View /> */}
       </View>
-      <ScrollView className="">
+      <ScrollView className="bg-[#f1f4f6]">
         <SafeAreaView className="flex-1">
-          <View className="bg-[#f1f4f6] px-4 py-2 dark:bg-[#18191B] ">
+          <View className=" bg-white px-4  py-2  dark:bg-[#18191B] ">
             <View className="flex flex-row items-center justify-between">
               <Text>收款地址</Text>
               <View className="flex flex-row items-center justify-end">
@@ -160,7 +162,7 @@ export default function RecordList() {
             </View>
           </View>
 
-          <View className="my-4 bg-[#f1f4f6]  px-4 py-2 dark:bg-[#18191B] ">
+          <View className="my-4 bg-white  px-4 py-2 dark:bg-[#18191B] ">
             <View className="flex flex-row items-center justify-between">
               <Text>转账金额</Text>
               <View className="flex flex-row items-center justify-end">
@@ -183,7 +185,7 @@ export default function RecordList() {
             </View>
           </View>
 
-          <View className="my-4 bg-[#f1f4f6]  px-4 py-2 dark:bg-[#18191B] ">
+          <View className="my-4 bg-white  px-4 py-2 dark:bg-[#18191B] ">
             <View className="flex flex-row items-center justify-between">
               <Text>网络费用</Text>
               <View className="flex flex-row items-center justify-end">
