@@ -12,13 +12,13 @@ export default ({ config }: ConfigContext): ExpoConfig => ({
   slug: 'y1c03wi7mhkbg2mgen8uhltnavd0b0q7hfys3hxw',
   version: Env.VERSION.toString(),
   orientation: 'portrait',
-  icon: './assets/icon.png',
+  icon: './assets/favicon.png',
   userInterfaceStyle: 'automatic',
   // cleartext: {
   //   cleartextTrafficPermitted: true,
   // },
   splash: {
-    image: './assets/adaptive-icon.png',
+    image: './assets/favicon.png',
     resizeMode: 'contain',
     backgroundColor: '#2E3C4B',
   },

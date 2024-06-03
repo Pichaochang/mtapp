@@ -8,7 +8,8 @@ import {
   ThemeProvider,
   useNavigationContainerRef,
 } from '@react-navigation/native';
-import { Stack } from 'expo-router';
+import { SplashScreen, Stack } from 'expo-router';
+import { useEffect } from 'react';
 // import { Stack, useNavigationContainerRef } from 'expo-router';
 // import { SplashScreen } from 'expo-splash-screen';
 import { StyleSheet } from 'react-native';
@@ -26,12 +27,12 @@ export const unstable_settings = {
 hydrateAuth();
 loadSelectedTheme();
 // Prevent the splash screen from auto-hiding before asset loading is complete.
-// SplashScreen.preventAutoHideAsync();
+SplashScreen.preventAutoHideAsync();
 
 export default function RootLayout() {
-  // useEffect(() => {
-  //   SplashScreen.hide();
-  // }, []);
+  useEffect(() => {
+    // SplashScreen.hideAsync();
+  }, []);
   const navigationRef = useNavigationContainerRef();
   useReactNavigationDevTools(navigationRef);
   return <RootLayoutNav />;
