@@ -112,7 +112,7 @@ export default function RecordList() {
             </TouchableOpacity>
           </View>
 
-          <View className="mt-2 bg-[#f1f4f6]  p-4 dark:bg-[#18191b]">
+          <View className="mt-2 bg-[#fff]  p-4 dark:bg-[#18191b]">
             <Text className="my-2 font-bold">最近转账</Text>
             {list.map((item, index) => {
               return (
