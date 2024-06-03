@@ -13,7 +13,7 @@ export default ({ config }: ConfigContext): ExpoConfig => ({
   version: Env.VERSION.toString(),
   orientation: 'portrait',
   icon: './assets/favicon.png',
-  userInterfaceStyle: 'automatic',
+  userInterfaceStyle: 'dark',
   // cleartext: {
   //   cleartextTrafficPermitted: true,
   // },
