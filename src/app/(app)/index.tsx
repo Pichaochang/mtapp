@@ -188,6 +188,7 @@ export default function Feed() {
             className=""
             color={iconColor}
           />
+          <Text className="ml-2 h-2 w-2 rounded-[4px] bg-[#5f8c5a]" />
         </View>
         <View className="flex h-full flex-row items-center justify-end">
           <WalletIcon className="ml-3" color={iconColor} />

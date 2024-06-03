@@ -1,5 +1,5 @@
 /* eslint-disable react/no-unstable-nested-components */
-import { Link, Redirect, SplashScreen, Tabs } from 'expo-router';
+import { Link, SplashScreen, Tabs } from 'expo-router';
 import React, { useCallback, useEffect } from 'react';
 
 import { useAuth, useIsFirstTime } from '@/core';
@@ -25,9 +25,9 @@ export default function TabLayout() {
     }
   }, [hideSplash, status]);
 
-  if (isFirstTime) {
-    return <Redirect href="/" />;
-  }
+  // if (isFirstTime) {
+  //   return <Redirect href="/" />;
+  // }
   // if (status === 'signOut') {
   //   return <Redirect href="/login" />;
   // }

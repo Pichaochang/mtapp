@@ -14,11 +14,11 @@ export default ({ config }: ConfigContext): ExpoConfig => ({
   orientation: 'portrait',
   icon: './assets/icon.png',
   userInterfaceStyle: 'automatic',
-  splash: {
-    image: './assets/splash.png',
-    resizeMode: 'contain',
-    backgroundColor: '#2E3C4B',
-  },
+  // splash: {
+  //   image: './assets/splash.png',
+  //   resizeMode: 'contain',
+  //   backgroundColor: '#2E3C4B',
+  // },
   updates: {
     fallbackToCacheTimeout: 0,
   },
@@ -31,10 +31,10 @@ export default ({ config }: ConfigContext): ExpoConfig => ({
     typedRoutes: true,
   },
   android: {
-    adaptiveIcon: {
-      foregroundImage: './assets/adaptive-icon.png',
-      backgroundColor: '#2E3C4B',
-    },
+    // adaptiveIcon: {
+    //   foregroundImage: './assets/adaptive-icon.png',
+    //   backgroundColor: '#2E3C4B',
+    // },
 
     package: Env.PACKAGE,
   },
