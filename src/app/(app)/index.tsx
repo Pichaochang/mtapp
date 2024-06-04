@@ -72,7 +72,11 @@ export default function Feed() {
     setChainList(data);
     if (type == 'init') {
       if (getItem('selectChain')) {
-        setInitData(getItem('selectChain'));
+        const getItem: any = getItem('selectChain') || {};
+        const id = getItem.chainId;
+        const arr = data || [];
+        const findItem = arr.find((item) => item.chainId == id);
+        setInitData(findItem || data[0]);
         getHomeData();
       } else {
         setInitData(data[0]);
