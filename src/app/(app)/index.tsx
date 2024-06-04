@@ -180,11 +180,10 @@ export default function Feed() {
     <>
       <FocusAwareStatusBar />
       {/* 头部 */}
-      <View className="flex h-20 flex-row  items-center justify-between px-4 pt-12 ">
+      <View className=" flex h-20 flex-row  items-center justify-between px-4 pt-12 ">
         <View className="flex h-full flex-row items-center">
           <MenuIcon
             onPress={async () => {
-              console.log(1111);
               present();
               await getAllData();
             }}
@@ -198,7 +197,7 @@ export default function Feed() {
           <ScanIcon className="ml-3" color={iconColor} />
         </View>
       </View>
-      <ScrollView className="px-4">
+      <ScrollView className="bg-[#f4f4f4] px-4">
         <SafeAreaView className="flex-1">
           <View>
             <Modal
@@ -260,13 +259,15 @@ export default function Feed() {
               </View>
             </Modal>
           </View>
-          <View className="flex-1  font-inter">
-            <View>
+          <View className="flex-1 bg-[#f4f4f4] font-inter">
+            <View className="bg-[#f4f4f4]">
               <View className=" z-10 h-32 w-full rounded-lg bg-[#3B6ACF] p-3 pt-0">
                 <View className="p-4">
                   <View className="flex w-full flex-row items-center justify-between">
                     <View className="flex flex-row items-center text-xs text-white">
-                      <Text className="text-white">{selectWallet.name}</Text>
+                      <Text className="text-white">
+                        {selectWallet && selectWallet.name}
+                      </Text>
                       <Image
                         className="ml-1 h-3 w-3"
                         source={require('../../assets/home/headerIcon1.png')}
@@ -292,7 +293,8 @@ export default function Feed() {
               {/* 四个图标 */}
               <View
                 // View
-                className="z-0 -mt-2 flex h-14  flex-row justify-around rounded-md bg-[#f1f4f6] dark:bg-[#232428]"
+                className="z-0 -mt-2 flex h-14 flex-row  justify-around rounded-md bg-[#fff] pt-2 shadow-2xl
+                dark:bg-[#232428]	"
               >
                 <View className="flex items-center justify-center">
                   <View className="flex flex-row items-center justify-center ">
@@ -340,7 +342,7 @@ export default function Feed() {
 
             {/* Dapp */}
             {/* dark:bg-[#232428] */}
-            <View className=" mt-4 flex  w-full flex-row justify-around rounded-md bg-[#f1f4f6] px-2 py-4  dark:bg-[#232428]">
+            <View className=" mt-4 flex  w-full flex-row justify-around rounded-md bg-[#fff] px-2 py-4  dark:bg-[#232428]">
               <View className="flex items-center justify-center">
                 <View className="flex items-center justify-center ">
                   <Image
@@ -381,7 +383,7 @@ export default function Feed() {
 
             {/* 资产 */}
 
-            <View className="my-4 flex w-full flex-row  items-center justify-between text-[#3b3b3b] dark:text-[#fff]">
+            <View className="my-4 flex w-full flex-row items-center justify-between rounded-[6px]  bg-[#fff] px-2 text-[#3b3b3b] dark:text-[#fff]">
               <View className="flex  flex-row items-center">
                 <View className="mr-3 flex items-center py-2 text-lg">
                   <View>
