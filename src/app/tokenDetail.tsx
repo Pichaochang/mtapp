@@ -11,36 +11,15 @@ import {
   colors,
   FocusAwareStatusBar,
   Image,
-  Radio,
   SafeAreaView,
   ScrollView,
   Text,
-  useModal,
   View,
 } from '@/ui';
 import { ArrowLeft, ArrowRight, CopyIcon, SearchIcon } from '@/ui/icons';
 
 export default function RecordList() {
-  const RadioExample = () => {
-    const [selected, setSelected] = React.useState(false);
-    return (
-      <Radio.Root
-        checked={selected}
-        onChange={setSelected}
-        accessibilityLabel="radio button"
-        className="pb-2"
-      >
-        <Radio.Icon checked={selected} />
-        <Radio.Label
-          className="my-2 text-xs  text-[#a7a7a7] dark:text-[#a7a7a7]"
-          text="不在提醒"
-        />
-      </Radio.Root>
-    );
-  };
   const [sssswalet, setsssswalet] = useState({});
-  const { ref: ref1, present: present1, dismiss: dismiss1 } = useModal();
-  const { ref: ref2, present: present2, dismiss: dismiss2 } = useModal();
   const [list, setList] = useState([]);
   const initData = async () => {
     const chainId = (getItem('selectChain') || {}).chainId;
@@ -101,10 +80,11 @@ export default function RecordList() {
   };
   const styles2 = StyleSheet.create({
     container: {
-      position: 'absolute',
-      bottom: 20,
       width: '100%',
       alignItems: 'center',
+      backgroundColor: '#FFFFFFCC',
+      paddingHorizontal: 15,
+      paddingVertical: 8,
     },
     button: {
       paddingVertical: 10,
@@ -118,7 +98,7 @@ export default function RecordList() {
   });
   const BottomButton = ({ onPress }) => {
     return (
-      <View className="flex w-full flex-row px-4" style={styles2.container}>
+      <View className="flex w-full  flex-row" style={styles2.container}>
         <TouchableOpacity
           className="flex-1 bg-[#66B08F] dark:bg-[#66B08F]"
           onPress={onPress}
@@ -143,7 +123,7 @@ export default function RecordList() {
           style={styles2.button}
         >
           <Text className="font-semibold text-white" style={styles2.buttonText}>
-            兑换
+            闪兑
           </Text>
         </TouchableOpacity>
       </View>
@@ -175,126 +155,134 @@ export default function RecordList() {
 
         {/* <View /> */}
       </View>
-      <ScrollView className="bg-[#f1f4f6] dark:bg-[#0e0e0e]">
-        <SafeAreaView className="flex-1 ">
-          <View className="bg-[#fff] px-4 py-2 dark:bg-[#18191B] ">
-            <View className="flex flex-row items-center justify-between">
-              <View className="flex flex-row items-center ">
-                <Image
-                  className="flex-0  my-2 mr-3 h-10 w-10 rounded-[20px]"
-                  source={{
-                    uri: sssswalet.imgUrl,
-                  }}
-                />
-                <Text>{sssswalet.assetName}</Text>
+      <ScrollView className="flex-1 bg-[#f1f4f6] dark:bg-[#0e0e0e]">
+        <SafeAreaView className="flex-1">
+          <View className=" pb-5">
+            <View className="bg-[#fff] px-4 py-2 dark:bg-[#18191B] ">
+              <View className="flex flex-row items-center justify-between">
+                <View className="flex flex-row items-center ">
+                  <Image
+                    className="flex-0  my-2 mr-3 h-10 w-10 rounded-[20px]"
+                    source={{
+                      uri: sssswalet.imgUrl,
+                    }}
+                  />
+                  <Text>{sssswalet.assetName}</Text>
+                </View>
+                <View className="flex flex-row items-center justify-end">
+                  <Text className="mr-3 text-left text-xs text-[#a7a7a7] dark:text-[#717172]">
+                    项目详情
+                  </Text>
+                  <ArrowRight color="#a7a7a7" width={7} height={7} />
+                </View>
               </View>
-              <View className="flex flex-row items-center justify-end">
-                <Text className="mr-3 text-left text-xs text-[#a7a7a7] dark:text-[#717172]">
-                  项目详情
-                </Text>
-                <ArrowRight color="#a7a7a7" width={7} height={7} />
+              <ThinLine />
+
+              <View className="mb-2 mt-4 flex flex-row items-center justify-between">
+                <Text className="">钱包余额</Text>
+                <View className="flex items-center text-right">
+                  <Text className="text-right text-xs">0.0001BNB</Text>
+                  <Text className="text-right text-xs text-[#a3a3a3] dark:text-[#474849]">
+                    ≈¥27.45
+                  </Text>
+                </View>
               </View>
             </View>
+
+            <View className="mt-2 bg-[#fff]  px-4 py-2 dark:bg-[#18191B] ">
+              <View className="flex flex-row items-center justify-between">
+                <View className="flex flex-row items-center ">
+                  <Image
+                    className="flex-0  my-2 mr-3 h-10 w-10 rounded-[20px]"
+                    source={require('../assets/home/dex.png')}
+                  />
+                  <Text>DEX价格:</Text>
+                  <Text className="text-[#CA2832] dark:text-[#CA2832]">
+                    ¥4167.39
+                  </Text>
+                </View>
+                <View className="flex flex-row items-center justify-end">
+                  <Text className="mr-2 text-xs dark:text-[#a7a7a7]">
+                    去交易
+                  </Text>
+                  {/* <ArrowRight color={iconColor} width={10} height={10} /> */}
+                  <ArrowRight color="#a7a7a7" width={7} height={7} />
+                </View>
+              </View>
+            </View>
+            {/* dark:bg-[#18191B] */}
             <ThinLine />
+            <View className=" flex w-full flex-row items-center justify-between  bg-[#fff] px-4 text-[#3b3b3b] dark:bg-[#18191B] dark:text-[#fff]">
+              <View className="flex flex-row  items-center px-2">
+                {/* border-b-2 border-[#717172]  dark:border-[#ffffff]"*/}
+                <View className="mr-3 flex items-center py-2 ">
+                  <View>
+                    <Text className="text-lg	font-semibold	">全部</Text>
+                  </View>
+                  <View className="mt-[2px] h-[3px] w-[25px] rounded-sm  bg-[#717172] dark:bg-[#ffffff]" />
+                </View>
 
-            <View className="mb-2 mt-4 flex flex-row items-center justify-between">
-              <Text className="">钱包余额</Text>
-              <View className="flex items-center text-right">
-                <Text className="text-right text-xs">0.0001BNB</Text>
-                <Text className="text-right text-xs text-[#a3a3a3] dark:text-[#474849]">
-                  ≈¥27.45
-                </Text>
-              </View>
-            </View>
-          </View>
-
-          <View className="mt-2 bg-[#fff]  px-4 py-2 dark:bg-[#18191B] ">
-            <View className="flex flex-row items-center justify-between">
-              <View className="flex flex-row items-center ">
-                <Image
-                  className="flex-0  my-2 mr-3 h-10 w-10 rounded-[20px]"
-                  source={require('../assets/home/dex.png')}
-                />
-                <Text>DEX价格:</Text>
-                <Text className="text-[#CA2832] dark:text-[#CA2832]">
-                  ¥4167.39
-                </Text>
+                <View className="mr-3 ">
+                  <Text className="text-[#a7a7a7] dark:text-[#717172]">
+                    转入
+                  </Text>
+                </View>
+                <View>
+                  <Text className="text-[#a7a7a7] dark:text-[#717172]">
+                    转出
+                  </Text>
+                </View>
               </View>
               <View className="flex flex-row items-center justify-end">
-                <Text className="mr-2 text-xs dark:text-[#a7a7a7]">去交易</Text>
-                {/* <ArrowRight color={iconColor} width={10} height={10} /> */}
-                <ArrowRight color="#a7a7a7" width={7} height={7} />
-              </View>
-            </View>
-          </View>
-          {/* dark:bg-[#18191B] */}
-          <ThinLine />
-          <View className=" flex w-full flex-row items-center justify-between  bg-[#fff] px-4 text-[#3b3b3b] dark:bg-[#18191B] dark:text-[#fff]">
-            <View className="flex flex-row  items-center px-2">
-              {/* border-b-2 border-[#717172]  dark:border-[#ffffff]"*/}
-              <View className="mr-3 flex items-center py-2 ">
-                <View>
-                  <Text className="text-lg	font-semibold	">全部</Text>
-                </View>
-                <View className="mt-[2px] h-[3px] w-[25px] rounded-sm  bg-[#717172] dark:bg-[#ffffff]" />
-              </View>
-
-              <View className="mr-3 ">
-                <Text className="text-[#a7a7a7] dark:text-[#717172]">转入</Text>
-              </View>
-              <View>
-                <Text className="text-[#a7a7a7] dark:text-[#717172]">转出</Text>
-              </View>
-            </View>
-            <View className="flex flex-row items-center justify-end">
-              <View className="flex h-[32px]  flex-row items-center justify-center rounded-[16px] bg-[#f1f4f6] p-2 dark:bg-[#232428]">
-                <SearchIcon className="" color={iconColor} />
-                <Text className=" mr-10 text-xs">&nbsp;&nbsp;搜索</Text>
-              </View>
-            </View>
-          </View>
-
-          {/* token list */}
-          {list.map((item, index) => (
-            <View
-              key={index}
-              className="w-full bg-[#fff] px-4 dark:bg-[#18191B]"
-            >
-              <View className="flex  w-full flex-row items-center justify-center">
-                <Image
-                  className="flex-0  my-2 mr-3 h-10 w-10 rounded-[20px]"
-                  style={[
-                    {
-                      transform: [{ rotate: '45deg' }],
-                    },
-                  ]}
-                  source={require('../assets/transfer.png')}
-                />
-                <View className=" w-full flex-1 border-b-2 border-[#fbfbfb] py-2	dark:border-[#232428]">
-                  <TouchableOpacity className="flex  flex-row items-center justify-between">
-                    <View>
-                      <View className="flex flex-row items-center justify-center text-right text-[#3b3b3b] dark:text-[#fff]">
-                        <Text className="w-[170px] text-[#3b3b3b] dark:text-[#fff]">
-                          {formatAddress(item.transtionHash)}
-                        </Text>
-                        <CopyIcon className="text-xs" color={iconColor} />
-                      </View>
-                      <Text className="text-left text-xs text-[#a7a7a7] dark:text-[#717172]">
-                        {item.createdAt}
-                      </Text>
-                    </View>
-                    <View>
-                      <View className="text-right ">
-                        <Text className="text-[#61c69f] dark:text-[#fff]">
-                          -0 ETH
-                        </Text>
-                      </View>
-                    </View>
-                  </TouchableOpacity>
+                <View className="flex h-[32px]  flex-row items-center justify-center rounded-[16px] bg-[#f1f4f6] p-2 dark:bg-[#232428]">
+                  <SearchIcon className="" color={iconColor} />
+                  <Text className=" mr-10 text-xs">&nbsp;&nbsp;搜索</Text>
                 </View>
               </View>
             </View>
-          ))}
+
+            {/* token list */}
+            {list.map((item, index) => (
+              <View
+                key={index}
+                className="w-full bg-[#fff] px-4 dark:bg-[#18191B]"
+              >
+                <View className="flex  w-full flex-row items-center justify-center">
+                  <Image
+                    className="flex-0  my-2 mr-3 h-10 w-10 rounded-[20px]"
+                    style={[
+                      {
+                        transform: [{ rotate: '45deg' }],
+                      },
+                    ]}
+                    source={require('../assets/transfer.png')}
+                  />
+                  <View className=" w-full flex-1 border-b-2 border-[#fbfbfb] py-2	dark:border-[#232428]">
+                    <TouchableOpacity className="flex  flex-row items-center justify-between">
+                      <View>
+                        <View className="flex flex-row items-center justify-center text-right text-[#3b3b3b] dark:text-[#fff]">
+                          <Text className="w-[170px] text-[#3b3b3b] dark:text-[#fff]">
+                            {formatAddress(item.transtionHash)}
+                          </Text>
+                          <CopyIcon className="text-xs" color={iconColor} />
+                        </View>
+                        <Text className="text-left text-xs text-[#a7a7a7] dark:text-[#717172]">
+                          {item.createdAt}
+                        </Text>
+                      </View>
+                      <View>
+                        <View className="text-right ">
+                          <Text className="text-[#61c69f] dark:text-[#fff]">
+                            -0 ETH
+                          </Text>
+                        </View>
+                      </View>
+                    </TouchableOpacity>
+                  </View>
+                </View>
+              </View>
+            ))}
+          </View>
         </SafeAreaView>
       </ScrollView>
       <BottomButton
