@@ -14,9 +14,6 @@ export default ({ config }: ConfigContext): ExpoConfig => ({
   orientation: 'portrait',
   icon: './assets/favicon.png',
   userInterfaceStyle: 'light',
-  // cleartext: {
-  //   cleartextTrafficPermitted: true,
-  // },
   splash: {
     image: './assets/splash.png',
     resizeMode: 'contain',
@@ -36,7 +33,6 @@ export default ({ config }: ConfigContext): ExpoConfig => ({
   },
   android: {
     adaptiveIcon: {
-      backgroundImage: './assets/favicon.png',
       foregroundImage: './assets/favicon.png',
     },
     package: Env.PACKAGE,
