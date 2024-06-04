@@ -22,6 +22,7 @@ import {
   CopyIcon,
   MenuIcon,
   PlusIcon,
+  PlusIconWallet,
   PlusPlusIcon,
   ReciveMoneyIcon,
   ScanIcon,
@@ -84,9 +85,9 @@ export default function Feed() {
   }, []);
   const setInitData = (item) => {
     setItem('selectChain', item);
-    setItem('selectWallet', item.walletItemVOList[0]);
+    setItem('selectWallet', item.walletItemVOList[0] || {});
     setChain(item);
-    setSelectWallet(item.walletItemVOList[0]);
+    setSelectWallet(item.walletItemVOList[0] || {});
     console.log('setInitData', item);
   };
   const { colorScheme } = useColorScheme();
@@ -216,6 +217,14 @@ export default function Feed() {
                   className=" bg-white dark:bg-[#18191b]"
                 >
                   <BottomSheetScrollView>
+                    <View className=" w-full">
+                      <TouchableOpacity className="flex w-full flex-row items-center justify-center">
+                        <PlusIconWallet
+                          className="mt-4 h-10 w-10 rounded-[20px]"
+                          color={iconColor}
+                        />
+                      </TouchableOpacity>
+                    </View>
                     {/* 左侧滚动区域 */}
                     <View style={{ width: 65 }}>
                       {chainList.map((item, index) => {

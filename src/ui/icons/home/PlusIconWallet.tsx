@@ -11,8 +11,8 @@ export const PlusIconWallet = ({
   ...props
 }: SvgProps) => (
   <Svg
-    width={20}
-    height={20}
+    width={35}
+    height={35}
     viewBox="0 0 1024 1024"
     fill="none"
     {...props}
