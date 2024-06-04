@@ -124,21 +124,27 @@ export default function RecordList() {
           onPress={onPress}
           style={styles2.button}
         >
-          <Text style={styles2.buttonText}>转账</Text>
+          <Text className="font-semibold text-white" style={styles2.buttonText}>
+            转账
+          </Text>
         </TouchableOpacity>
         <TouchableOpacity
           className="ml-2 flex-1 bg-[#3B6ADA] dark:bg-[#3B6ADA]"
           onPress={onPress}
           style={styles2.button}
         >
-          <Text style={styles2.buttonText}>收款</Text>
+          <Text className="font-semibold text-white" style={styles2.buttonText}>
+            收款
+          </Text>
         </TouchableOpacity>
         <TouchableOpacity
           className="ml-2 flex-1 bg-[#18191B] dark:bg-[#18191B]"
           onPress={onPress}
           style={styles2.button}
         >
-          <Text style={styles2.buttonText}>兑换</Text>
+          <Text className="font-semibold text-white" style={styles2.buttonText}>
+            兑换
+          </Text>
         </TouchableOpacity>
       </View>
     );
@@ -164,7 +170,7 @@ export default function RecordList() {
             返回
           </Text>
         </View>
-        <Text className="w-1/3 flex-1 text-center text-lg">转账</Text>
+        <Text className="w-1/3 flex-1 text-center text-lg ">转账</Text>
         <Text className="w-1/3 " />
 
         {/* <View /> */}
@@ -195,7 +201,7 @@ export default function RecordList() {
               <Text className="">钱包余额</Text>
               <View className="flex items-center text-right">
                 <Text className="text-right text-xs">0.0001BNB</Text>
-                <Text className="text-xs text-[#474849] dark:text-[#474849]">
+                <Text className="text-right text-xs text-[#a3a3a3] dark:text-[#474849]">
                   ≈¥27.45
                 </Text>
               </View>
