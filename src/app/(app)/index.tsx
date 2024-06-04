@@ -154,7 +154,7 @@ export default function Feed() {
   const walletItem = (item, index): any => (
     <TouchableOpacity
       key={index}
-      className="mb-2 rounded-[8px] bg-slate-500 p-4 dark:bg-[#18191b]"
+      className="mb-2 rounded-[8px] bg-[#f2f4f6] p-4 dark:bg-[#18191b]"
       onPress={() => {
         setSelectWallet(item);
         setItem('selectWallet', item);
@@ -165,7 +165,7 @@ export default function Feed() {
     >
       <Text>{chain.chainName}</Text>
       <View className="flex flex-row items-center ">
-        <Text className="text-[#38393a] dark:text-[#38393a] ">
+        <Text className=" text-[#bbbdbe] dark:text-[#38393a] ">
           {formatAddress(item.address)}
         </Text>
         <CopyIcon className="ml-1 text-xs" color={iconColor2} />

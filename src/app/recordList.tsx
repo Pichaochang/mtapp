@@ -15,19 +15,14 @@ import {
   useModal,
   View,
 } from '@/ui';
-import { ArrowLeft } from '@/ui/icons';
+import { ArrowLeft, CopyIcon } from '@/ui/icons';
 
 // eslint-disable-next-line max-lines-per-function
 export default function RecordList() {
   const { ref, present, dismiss } = useModal();
   const router = useRouter();
-
-  // const { data, isPending, isError } = usePosts();
-  // const renderItem = React.useCallback(
-  //   ({ item }: { item: Post }) => <Card {...item} />,
-  //   []
-  // );
   const { colorScheme } = useColorScheme();
+  const iconColor2 = colorScheme === 'dark' ? '#fff' : colors.neutral[500];
   const iconColor = colorScheme === 'dark' ? '#fff' : colors.neutral[400];
   // colors.neutral[500]
   console.log('iconColor', iconColor, colorScheme);
@@ -118,12 +113,15 @@ export default function RecordList() {
               return (
                 <View
                   key={index}
-                  className=" bg-white px-2 py-4 dark:bg-[#18191b]"
+                  className="flex flex-row items-center  justify-center  bg-white px-2 py-4 dark:bg-[#18191b]"
                 >
-                  <Text>{item.transtionHash}</Text>
-                  <Text className="text-xs dark:text-[#747575]">
-                    {item.createdAt}
-                  </Text>
+                  <View className="flex flex-1">
+                    <Text>{item.transtionHash}</Text>
+                    <Text className="text-xs text-[#bbbdbe] dark:text-[#747575]">
+                      {item.createdAt}
+                    </Text>
+                  </View>
+                  <CopyIcon className="ml-1 text-xs" color={iconColor2} />
                 </View>
               );
             })}

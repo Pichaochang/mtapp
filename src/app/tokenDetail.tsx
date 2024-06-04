@@ -82,7 +82,6 @@ export default function RecordList() {
     container: {
       width: '100%',
       alignItems: 'center',
-      backgroundColor: '#FFFFFFCC',
       paddingHorizontal: 15,
       paddingVertical: 8,
     },
@@ -98,7 +97,10 @@ export default function RecordList() {
   });
   const BottomButton = ({ onPress }) => {
     return (
-      <View className="flex w-full  flex-row" style={styles2.container}>
+      <View
+        className="flex w-full  flex-row bg-[#FFFFFFCC] dark:bg-[#222428]"
+        style={styles2.container}
+      >
         <TouchableOpacity
           className="flex-1 bg-[#66B08F] dark:bg-[#66B08F]"
           onPress={onPress}
