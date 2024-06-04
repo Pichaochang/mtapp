@@ -33,6 +33,7 @@ export default ({ config }: ConfigContext): ExpoConfig => ({
   },
   android: {
     adaptiveIcon: {
+      backgroundImage: './assets/favicon.png',
       foregroundImage: './assets/favicon.png',
     },
     package: Env.PACKAGE,
