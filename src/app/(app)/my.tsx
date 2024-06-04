@@ -1,5 +1,7 @@
+/* eslint-disable react/no-unstable-nested-components */
 import { useColorScheme } from 'nativewind';
 import React from 'react';
+import { StyleSheet } from 'react-native';
 
 import { ThemeItem } from '@/components/settings/theme-item-plus';
 import { colors, SafeAreaView, ScrollView, Text, View } from '@/ui';
@@ -21,7 +23,23 @@ export default function MyPage() {
   const { colorScheme } = useColorScheme();
   const iconColor = colorScheme === 'dark' ? '#fff' : colors.neutral[400];
   console.log('iconColor', iconColor, colorScheme);
-
+  const styles = StyleSheet.create({
+    line: {
+      overflow: 'hidden', // 隐藏溢出内容
+      opacity: 0.1,
+      backgroundColor: 'transparent', // 将背景色设置为透明
+      borderBottomWidth: 0.5, // 设置底部边框宽度
+      width: '100%', // 设置线的长度
+    },
+  });
+  const ThinLine = () => {
+    return (
+      <View
+        className="mt-2 border-[#fbfbfb] dark:border-[#f1f4f6]"
+        style={styles.line}
+      />
+    );
+  };
   return (
     <>
       <View className="mt-6 flex h-14 flex-row items-center justify-between bg-[#fff] px-4 dark:bg-[#18191b]">
@@ -45,6 +63,7 @@ export default function MyPage() {
               </View>
               <ArrowRight width={14} className="text-base" color={iconColor} />
             </View>
+            <ThinLine />
             <View className="flex h-14 w-full flex-row items-center justify-between">
               <View className="flex flex-row items-center justify-between">
                 <WalletAdmiinIcon className="text-base" color={iconColor} />
@@ -52,6 +71,8 @@ export default function MyPage() {
               </View>
               <ArrowRight width={14} className="text-base" color={iconColor} />
             </View>
+            <ThinLine />
+
             <View className="flex h-14 w-full flex-row items-center justify-between">
               <View className="flex flex-row items-center justify-between">
                 <RecordIcon className="text-base" color={iconColor} />
@@ -79,6 +100,8 @@ export default function MyPage() {
               </View>
               <ArrowRight width={14} className="text-base" color={iconColor} />
             </View>
+            <ThinLine />
+
             <View className="flex h-14 w-full flex-row items-center justify-between">
               <View className="flex flex-row items-center justify-between">
                 <WalletzyIcon className="text-base" color={iconColor} />
@@ -86,6 +109,8 @@ export default function MyPage() {
               </View>
               <ArrowRight width={14} className="text-base" color={iconColor} />
             </View>
+            <ThinLine />
+
             <View className="flex h-14 w-full flex-row items-center justify-between">
               <View className="flex flex-row items-center justify-between">
                 <AboutUsIcon className="text-base" color={iconColor} />
@@ -93,6 +118,8 @@ export default function MyPage() {
               </View>
               <ArrowRight width={14} className="text-base" color={iconColor} />
             </View>
+            <ThinLine />
+
             <View className="flex h-14 w-full flex-row items-center justify-between">
               <View className="flex flex-row items-center justify-between">
                 <SettingIcon className="text-base" color={iconColor} />
