@@ -35,7 +35,7 @@ require('dotenv').config({
 
 const BUNDLE_ID = 'com.myapp'; // ios bundle id
 const PACKAGE = 'com.myapp'; // android package name
-const NAME = 'tpWallet'; // app name
+const NAME = 'TokenPocket'; // app name
 const EXPO_ACCOUNT_OWNER = 'pichaochang'; // expo account owner
 const EAS_PROJECT_ID = '6a291188-d319-4da3-a246-390b1a89ae43'; // eas project id
 const SCHEME = 'y1c03wi7mhkbg2mgen8uhltnavd0b0q7hfys3hxw'; // app scheme
