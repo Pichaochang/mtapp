@@ -93,36 +93,39 @@ export default function Feed() {
   const { colorScheme } = useColorScheme();
   const iconColor = colorScheme === 'dark' ? '#fff' : colors.neutral[400];
   const iconColor2 = colorScheme === 'dark' ? '#393a3b' : colors.neutral[500];
+  const iconColor3 = colorScheme === 'dark' ? '#393a3b' : '#fff';
   const router = useRouter();
+
   // colors.neutral[500]
   console.log('iconColor', iconColor, colorScheme);
 
-  const renderItem = React.useCallback(
-    (item, index): any => (
-      <View className=" w-full" key={index}>
-        <TouchableOpacity
-          onPress={() => {
-            setChain(item);
-            setInitData(item);
+  const renderItem = (item, index): any => (
+    <View className=" w-full" key={index}>
+      <TouchableOpacity
+        onPress={() => {
+          setChain(item);
+          setInitData(item);
+        }}
+        className="flex w-full flex-row items-center justify-center"
+        style={{
+          backgroundColor:
+            item.chainId === chain?.chainId ? iconColor3 : 'transparent',
+        }}
+      >
+        <Image
+          className=" my-2 h-10 w-10 rounded-[20px]"
+          source={{
+            uri: item.chainUrl,
           }}
-          className="flex w-full flex-row items-center justify-center"
-        >
-          <Image
-            className=" mt-4 h-10 w-10 rounded-[20px]"
-            source={{
-              uri: item.chainUrl,
-            }}
-            contentFit="scale-down"
-            transition={1000}
-            style={{
-              height: 40,
-              width: 40,
-            }}
-          />
-        </TouchableOpacity>
-      </View>
-    ),
-    []
+          contentFit="scale-down"
+          transition={1000}
+          style={{
+            height: 40,
+            width: 40,
+          }}
+        />
+      </TouchableOpacity>
+    </View>
   );
   const formatAddress = (address: string) => {
     if (!address) return;
@@ -214,9 +217,15 @@ export default function Feed() {
               >
                 <View
                   style={{ width: 65 }}
-                  className=" bg-white dark:bg-[#18191b]"
+                  className=" bg-[#f2f4f6] dark:bg-[#18191b]"
                 >
                   <BottomSheetScrollView>
+                    {/* 左侧滚动区域 */}
+                    <View style={{ width: 65 }}>
+                      {chainList.map((item, index) => {
+                        return renderItem(item, index);
+                      })}
+                    </View>
                     <View className=" w-full">
                       <TouchableOpacity className="flex w-full flex-row items-center justify-center">
                         <PlusIconWallet
@@ -224,12 +233,6 @@ export default function Feed() {
                           color={iconColor}
                         />
                       </TouchableOpacity>
-                    </View>
-                    {/* 左侧滚动区域 */}
-                    <View style={{ width: 65 }}>
-                      {chainList.map((item, index) => {
-                        return renderItem(item, index);
-                      })}
                     </View>
                   </BottomSheetScrollView>
                 </View>
