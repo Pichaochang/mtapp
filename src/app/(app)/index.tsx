@@ -93,7 +93,7 @@ export default function Feed() {
   const { colorScheme } = useColorScheme();
   const iconColor = colorScheme === 'dark' ? '#fff' : colors.neutral[400];
   const iconColor2 = colorScheme === 'dark' ? '#393a3b' : colors.neutral[500];
-  const iconColor3 = colorScheme === 'dark' ? '#393a3b' : '#fff';
+  const iconColor3 = colorScheme === 'dark' ? '#0e0e0e' : '#fff';
   const router = useRouter();
 
   // colors.neutral[500]
@@ -106,24 +106,27 @@ export default function Feed() {
           setChain(item);
           setInitData(item);
         }}
-        className="flex w-full flex-row items-center justify-center"
-        style={{
-          backgroundColor:
-            item.chainId === chain?.chainId ? iconColor3 : 'transparent',
-        }}
       >
-        <Image
-          className=" my-2 h-10 w-10 rounded-[20px]"
-          source={{
-            uri: item.chainUrl,
-          }}
-          contentFit="scale-down"
-          transition={1000}
+        <View
+          className="flex w-full flex-row items-center justify-center"
           style={{
-            height: 40,
-            width: 40,
+            backgroundColor:
+              item.chainId === chain?.chainId ? iconColor3 : 'transparent',
           }}
-        />
+        >
+          <Image
+            className=" my-2 h-10 w-10 rounded-[20px]"
+            source={{
+              uri: item.chainUrl,
+            }}
+            contentFit="scale-down"
+            transition={1000}
+            style={{
+              height: 40,
+              width: 40,
+            }}
+          />
+        </View>
       </TouchableOpacity>
     </View>
   );
