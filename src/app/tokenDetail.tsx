@@ -87,7 +87,7 @@ export default function RecordList() {
   const ThinLine = () => {
     return (
       <View
-        className="mt-2 border-[#f1f4f6] dark:border-[#f1f4f6]"
+        className="mt-2 border-[#fbfbfb] dark:border-[#f1f4f6]"
         style={styles.line}
       />
     );
@@ -147,7 +147,7 @@ export default function RecordList() {
     <>
       <FocusAwareStatusBar />
       {/* 头部 */}
-      <View className="flex h-20 flex-row  items-center px-4 pt-12 ">
+      <View className="flex h-24 flex-row  items-center px-4 pt-12 ">
         <View className="flex h-full w-1/3 flex-row items-center">
           <ArrowLeft
             onPress={() => {
@@ -202,7 +202,7 @@ export default function RecordList() {
             </View>
           </View>
 
-          <View className="my-4 bg-[#fff]  px-4 py-2 dark:bg-[#18191B] ">
+          <View className="mt-2 bg-[#fff]  px-4 py-2 dark:bg-[#18191B] ">
             <View className="flex flex-row items-center justify-between">
               <View className="flex flex-row items-center ">
                 <Image
@@ -222,8 +222,8 @@ export default function RecordList() {
             </View>
           </View>
           {/* dark:bg-[#18191B] */}
-
-          <View className="my-4 flex w-full flex-row items-center justify-between  bg-[#fff] px-4 text-[#3b3b3b] dark:bg-[#18191B] dark:text-[#fff]">
+          <ThinLine />
+          <View className=" flex w-full flex-row items-center justify-between  bg-[#fff] px-4 text-[#3b3b3b] dark:bg-[#18191B] dark:text-[#fff]">
             <View className="flex  flex-row items-center">
               {/* border-b-2 border-[#717172]  dark:border-[#ffffff]"*/}
               <View className="mr-3 flex items-center py-2 text-lg">
@@ -257,11 +257,14 @@ export default function RecordList() {
               <View className="flex  w-full flex-row items-center justify-center">
                 <Image
                   className="flex-0  my-2 mr-3 h-10 w-10 rounded-[20px]"
-                  source={{
-                    uri: sssswalet.imgUrl,
-                  }}
+                  style={[
+                    {
+                      transform: [{ rotate: '45deg' }],
+                    },
+                  ]}
+                  source={require('../assets/transfer.png')}
                 />
-                <View className=" w-full flex-1 border-b border-[#717172] py-2	dark:border-[#232428]">
+                <View className=" w-full flex-1 border-b-2 border-[#fbfbfb] py-2	dark:border-[#232428]">
                   <TouchableOpacity className="flex  flex-row items-center justify-between">
                     <View>
                       <View className="flex flex-row items-center justify-center text-right text-[#3b3b3b] dark:text-[#fff]">
@@ -275,8 +278,10 @@ export default function RecordList() {
                       </Text>
                     </View>
                     <View>
-                      <View className="text-right text-[#3b3b3b] dark:text-[#fff]">
-                        <Text>0.006556</Text>
+                      <View className="text-right ">
+                        <Text className="text-[#61c69f] dark:text-[#fff]">
+                          -0 ETH
+                        </Text>
                       </View>
                     </View>
                   </TouchableOpacity>
