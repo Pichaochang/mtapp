@@ -30,7 +30,7 @@ export const useSelectedTheme = () => {
 };
 // to be used in the root file to load the selected theme from MMKV
 export const loadSelectedTheme = () => {
-  const theme = storage.getString(SELECTED_THEME) || 'dark';
+  const theme = storage.getString(SELECTED_THEME) || 'light';
   if (theme !== undefined) {
     console.log('theme', theme);
     colorScheme.set(theme as ColorSchemeType);
