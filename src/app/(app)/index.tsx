@@ -75,6 +75,7 @@ export default function Feed() {
         getHomeData();
       } else {
         setInitData(data[0]);
+        getHomeData();
       }
     }
   };
@@ -183,8 +184,9 @@ export default function Feed() {
         <View className="flex h-full flex-row items-center">
           <MenuIcon
             onPress={async () => {
-              await getAllData();
+              console.log(1111);
               present();
+              await getAllData();
             }}
             className=""
             color={iconColor}
