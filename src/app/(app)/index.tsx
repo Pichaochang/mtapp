@@ -197,7 +197,7 @@ export default function Feed() {
           <ScanIcon className="ml-3" color={iconColor} />
         </View>
       </View>
-      <ScrollView className="bg-[#f4f4f4] px-4">
+      <ScrollView className="bg-[#f4f4f4] px-4 dark:bg-[#17191a]">
         <SafeAreaView className="flex-1">
           <View>
             <Modal
@@ -259,8 +259,8 @@ export default function Feed() {
               </View>
             </Modal>
           </View>
-          <View className="flex-1 bg-[#f4f4f4] font-inter">
-            <View className="bg-[#f4f4f4]">
+          <View className="flex-1 bg-[#f4f4f4] font-inter dark:bg-[#17191a]">
+            <View className="bg-[#f4f4f4] dark:bg-[#17191a]">
               <View className=" z-10 h-32 w-full rounded-lg bg-[#3B6ACF] p-3 pt-0">
                 <View className="p-4">
                   <View className="flex w-full flex-row items-center justify-between">
@@ -383,7 +383,7 @@ export default function Feed() {
 
             {/* 资产 */}
 
-            <View className="my-4 flex w-full flex-row items-center justify-between rounded-[6px]  bg-[#fff] px-2 text-[#3b3b3b] dark:text-[#fff]">
+            <View className="mt-4 flex w-full flex-row items-center justify-between  rounded-t-[6px]  bg-[#fff] px-2 text-[#3b3b3b] dark:bg-[#17191a] dark:text-[#fff]">
               <View className="flex  flex-row items-center">
                 <View className="mr-3 flex items-center py-2 text-lg">
                   <View>
@@ -416,7 +416,10 @@ export default function Feed() {
 
             {/* token list */}
             {homeList.map((item: any, index) => (
-              <View className="w-full" key={index}>
+              <View
+                className="w-full bg-[#fff] px-2 dark:bg-[#17191a]"
+                key={index}
+              >
                 {/* <Text>{item.imgUrl}</Text> */}
                 <View className="flex  w-full flex-row items-center justify-center">
                   <Image
