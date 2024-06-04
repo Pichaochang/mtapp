@@ -69,12 +69,12 @@ export default function Feed() {
   const getAllData = async (type = 'no') => {
     const { data, code } = await getList();
     console.log('data, code', data, code);
-    setChainList(data);
+    setChainList(data || []);
     if (!data.length) return;
     if (type == 'init') {
       if (getItem('selectChain')) {
-        const getItem: any = getItem('selectChain') || {};
-        const id = getItem.chainId;
+        const gett: any = getItem('selectChain') || {};
+        const id = gett.chainId;
         const arr = data || [];
         const findItem = arr.find((item) => item.chainId == id);
         setInitData(findItem || data[0]);
