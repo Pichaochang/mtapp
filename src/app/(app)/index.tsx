@@ -103,6 +103,7 @@ export default function Feed() {
     <View className=" w-full" key={index}>
       <TouchableOpacity
         onPress={() => {
+          setHomeList([]);
           setChain(item);
           setInitData(item);
         }}
@@ -139,11 +140,12 @@ export default function Feed() {
   };
 
   const getHomeData = async () => {
+    setHomeList([]);
     const chainId = chain.chainId || (getItem('selectChain') || {}).chainId;
     const address =
       selectWallet.address || (getItem('selectWallet') || {}).address;
     console.log('getHomeData1', chainId, address);
-
+    if (!chainId || !address) return;
     // chainId=2&address=0x0B4b782bCadBfdCc3556aD66F34cc39BA95DAB36
     const { data, code }: any = await getAssertList(
       chainId,
@@ -166,7 +168,7 @@ export default function Feed() {
         setItem('selectWallet', item);
         console.log('item', item);
         dismiss();
-        getHomeData(item);
+        getHomeData();
       }}
     >
       <Text>{chain.chainName}</Text>

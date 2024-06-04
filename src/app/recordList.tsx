@@ -30,6 +30,7 @@ export default function RecordList() {
   const initData = async () => {
     const chainId = (getItem('selectChain') || {}).chainId;
     const address = (getItem('selectWallet') || {}).address;
+    if (!chainId || !address) return;
     console.log('getTxList', chainId, address);
 
     const { data } = await getTxList(chainId, address);
