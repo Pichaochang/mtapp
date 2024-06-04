@@ -94,8 +94,8 @@ export default function RecordList() {
   };
   const formatAddress = (address: string) => {
     if (!address) return;
-    return `${address.slice(0, 6)}...${address.slice(
-      address.length - 6,
+    return `${address.slice(0, 8)}...${address.slice(
+      address.length - 8,
       address.length
     )}`;
   };
@@ -224,11 +224,11 @@ export default function RecordList() {
           {/* dark:bg-[#18191B] */}
           <ThinLine />
           <View className=" flex w-full flex-row items-center justify-between  bg-[#fff] px-4 text-[#3b3b3b] dark:bg-[#18191B] dark:text-[#fff]">
-            <View className="flex  flex-row items-center">
+            <View className="flex flex-row  items-center px-2">
               {/* border-b-2 border-[#717172]  dark:border-[#ffffff]"*/}
-              <View className="mr-3 flex items-center py-2 text-lg">
+              <View className="mr-3 flex items-center py-2 ">
                 <View>
-                  <Text>全部</Text>
+                  <Text className="text-lg	font-semibold	">全部</Text>
                 </View>
                 <View className="mt-[2px] h-[3px] w-[25px] rounded-sm  bg-[#717172] dark:bg-[#ffffff]" />
               </View>
@@ -241,9 +241,9 @@ export default function RecordList() {
               </View>
             </View>
             <View className="flex flex-row items-center justify-end">
-              <View className="flex h-8 flex-row items-center justify-center rounded-[20px] p-2 dark:bg-[#232428]">
+              <View className="flex h-[32px]  flex-row items-center justify-center rounded-[16px] bg-[#f1f4f6] p-2 dark:bg-[#232428]">
                 <SearchIcon className="" color={iconColor} />
-                <Text className="mr-10 text-xs">&nbsp;&nbsp;搜索</Text>
+                <Text className=" mr-10 text-xs">&nbsp;&nbsp;搜索</Text>
               </View>
             </View>
           </View>
@@ -268,10 +268,10 @@ export default function RecordList() {
                   <TouchableOpacity className="flex  flex-row items-center justify-between">
                     <View>
                       <View className="flex flex-row items-center justify-center text-right text-[#3b3b3b] dark:text-[#fff]">
-                        <Text className="text-[#3b3b3b] dark:text-[#fff]">
+                        <Text className="w-[170px] text-[#3b3b3b] dark:text-[#fff]">
                           {formatAddress(item.transtionHash)}
                         </Text>
-                        <CopyIcon className="ml-1 text-xs" color={iconColor} />
+                        <CopyIcon className="text-xs" color={iconColor} />
                       </View>
                       <Text className="text-left text-xs text-[#a7a7a7] dark:text-[#717172]">
                         {item.createdAt}
