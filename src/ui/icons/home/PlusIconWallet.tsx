@@ -5,7 +5,11 @@ import Svg, { Path } from 'react-native-svg';
 
 import { isRTL } from '@/core';
 
-export const PlusIcon = ({ color = '#CCC', style, ...props }: SvgProps) => (
+export const PlusIconWallet = ({
+  color = '#CCC',
+  style,
+  ...props
+}: SvgProps) => (
   <Svg
     width={20}
     height={20}

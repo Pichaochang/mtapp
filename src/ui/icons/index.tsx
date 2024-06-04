@@ -34,6 +34,7 @@ export * from './home/BuyIconP';
 export * from './home/CopyIcon';
 export * from './home/MenuIcon';
 export * from './home/PlusIcon';
+export * from './home/PlusIconWallet';
 export * from './home/PlusPlus';
 export * from './home/ReciveMoneyIcon';
 export * from './home/SearchIcon';
