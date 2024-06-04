@@ -57,7 +57,7 @@ export default function RecordList() {
   const styles = StyleSheet.create({
     line: {
       overflow: 'hidden', // 隐藏溢出内容
-      opacity: 0.1,
+      opacity: 0.3,
       backgroundColor: 'transparent', // 将背景色设置为透明
       borderBottomWidth: 0.5, // 设置底部边框宽度
       width: '100%', // 设置线的长度
@@ -66,7 +66,7 @@ export default function RecordList() {
   const ThinLine = () => {
     return (
       <View
-        className="mt-2 border-[#fbfbfb] dark:border-[#f1f4f6]"
+        className="mt-2 border-[#c9cacb] dark:border-[#f1f4f6]"
         style={styles.line}
       />
     );

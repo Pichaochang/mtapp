@@ -1,7 +1,7 @@
 import { useRouter } from 'expo-router';
 import { useColorScheme } from 'nativewind';
 import React, { useEffect, useState } from 'react';
-import { TouchableOpacity } from 'react-native';
+import { StyleSheet, TouchableOpacity } from 'react-native';
 
 import { getTxList } from '@/api';
 import { getItem } from '@/core/storage';
@@ -16,7 +16,29 @@ import {
   View,
 } from '@/ui';
 import { ArrowLeft, CopyIcon } from '@/ui/icons';
+const styles = StyleSheet.create({
+  line: {
+    overflow: 'hidden', // 隐藏溢出内容
+    opacity: 0.3,
+    backgroundColor: 'transparent', // 将背景色设置为透明
+    borderBottomWidth: 0.5, // 设置底部边框宽度
+    width: '100%', // 设置线的长度
+  },
+  image: {
+    flex: 1,
+    width: '100%',
+    backgroundColor: '#0553',
+  },
+});
 
+const ThinLine = () => {
+  return (
+    <View
+      className="mt-2 border-[#c9cacb] dark:border-[#f1f4f6]"
+      style={styles.line}
+    />
+  );
+};
 // eslint-disable-next-line max-lines-per-function
 export default function RecordList() {
   const { ref, present, dismiss } = useModal();
@@ -112,17 +134,17 @@ export default function RecordList() {
             <Text className="my-2 font-bold">最近转账</Text>
             {list.map((item, index) => {
               return (
-                <View
-                  key={index}
-                  className="flex flex-row items-center  justify-center  bg-white px-2 py-4 dark:bg-[#18191b]"
-                >
-                  <View className="flex flex-1">
-                    <Text>{item.transtionHash}</Text>
-                    <Text className="text-xs text-[#bbbdbe] dark:text-[#747575]">
-                      {item.createdAt}
-                    </Text>
+                <View key={index}>
+                  <View className="flex flex-row items-center  justify-center  bg-white p-[5px] dark:bg-[#18191b]">
+                    <View className="flex flex-1">
+                      <Text>{item.transtionHash}</Text>
+                      <Text className="text-xs text-[#bbbdbe] dark:text-[#747575]">
+                        {item.createdAt}
+                      </Text>
+                    </View>
+                    <CopyIcon className="ml-1 text-xs" color={iconColor2} />
                   </View>
-                  <CopyIcon className="ml-1 text-xs" color={iconColor2} />
+                  <ThinLine />
                 </View>
               );
             })}
