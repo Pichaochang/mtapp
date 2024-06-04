@@ -70,6 +70,7 @@ export default function Feed() {
     const { data, code } = await getList();
     console.log('data, code', data, code);
     setChainList(data);
+    if (!data.length) return;
     if (type == 'init') {
       if (getItem('selectChain')) {
         const getItem: any = getItem('selectChain') || {};
