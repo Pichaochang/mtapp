@@ -24,6 +24,7 @@ import {
 import { ArrowLeft, ArrowRight, RefreshIcon, ScanIcon } from '@/ui/icons';
 
 export default function RecordList() {
+  const [walletname] = useState((getItem('selectWallet') || {}).name);
   const [chainId] = useState((getItem('selectChain') || {}).chainId);
   const [ethName] = useState((getItem('selectChain') || {}).ethName);
   const [chainName] = useState((getItem('selectChain') || {}).chainName);
@@ -290,7 +291,7 @@ export default function RecordList() {
                   <View>
                     <Text>{address}</Text>
                     <Text className="text-[#a7a7a7] dark:text-[#a7a7a7]">
-                      ( {chainName})
+                      ( {walletname})
                     </Text>
                   </View>
                 </View>
@@ -301,7 +302,7 @@ export default function RecordList() {
                   <View>
                     <Text>{text}</Text>
                     <Text className="text-[#a7a7a7] dark:text-[#a7a7a7]">
-                      ({chainName})
+                      ({walletname})
                     </Text>
                   </View>
                 </View>
