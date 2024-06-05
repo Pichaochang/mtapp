@@ -5,6 +5,7 @@ import { useRouter } from 'expo-router';
 import { useColorScheme } from 'nativewind';
 import React, { useEffect, useState } from 'react';
 import { StyleSheet, TouchableOpacity } from 'react-native';
+import { TextInput } from 'react-native';
 
 import { transform } from '@/api';
 import { getItem } from '@/core/storage';
@@ -24,7 +25,12 @@ import { ArrowLeft, ArrowRight, RefreshIcon, ScanIcon } from '@/ui/icons';
 
 export default function RecordList() {
   const [chainId] = useState((getItem('selectChain') || {}).chainId);
+  const [ethName] = useState((getItem('selectChain') || {}).ethName);
+  const [chainName] = useState((getItem('selectChain') || {}).chainName);
+
   const [address] = useState((getItem('selectWallet') || {}).address);
+  const [text, setText] = useState('');
+  const [Num, setNum] = useState('');
 
   useEffect(() => { }, []);
   const RadioExample = () => {
@@ -56,6 +62,8 @@ export default function RecordList() {
   // );
   const { colorScheme } = useColorScheme();
   const iconColor = colorScheme === 'dark' ? '#fff' : colors.neutral[400];
+  const iconColor2 = colorScheme === 'dark' ? '#474849' : '#474849';
+  // text-[#474849] dark:text-[#474849]
   // colors.neutral[500]
   console.log('iconColor', iconColor, colorScheme);
   // if (isError) {
@@ -153,9 +161,21 @@ export default function RecordList() {
               </View>
             </View>
             <View className="flex flex-row items-center justify-between">
-              <Text className="text-xs text-[#474849] dark:text-[#474849]">
-                输入或粘贴钱包地址
-              </Text>
+              {/* <Text className="text-xs text-[#474849] dark:text-[#474849]">
+                <TextInput
+                  style={{ height: 20 }}
+                  onChangeText={(text) => setText(text)}
+                  value={text}
+                />
+              </Text> */}
+              <TextInput
+                placeholder="输入或粘贴钱包地址"
+                className="text-xs text-[#474849] dark:text-[#474849]"
+                style={{ height: 20 }}
+                placeholderTextColor={iconColor2}
+                onChangeText={(text) => setText(text)}
+                value={text}
+              />
               <View className="flex flex-row items-center justify-end">
                 <ScanIcon color="#3B6ADA" width={14} height={14} />
               </View>
@@ -166,14 +186,22 @@ export default function RecordList() {
             <View className="flex flex-row items-center justify-between">
               <Text>转账金额</Text>
               <View className="flex flex-row items-center justify-end">
-                <Text className="mr-2 text-xs ">BNB</Text>
+                <Text className="mr-2 text-xs ">{ethName}</Text>
                 <ArrowRight color={iconColor} width={10} height={10} />
               </View>
             </View>
             <View className="mt-4 flex flex-row items-center justify-between">
-              <Text className="text-xs text-[#474849] dark:text-[#474849]">
+              {/* <Text className="text-xs text-[#474849] dark:text-[#474849]">
                 请输入数量
-              </Text>
+              </Text> */}
+              <TextInput
+                placeholderTextColor={iconColor2}
+                className="text-xs text-[#474849] dark:text-[#474849]"
+                placeholder="请输入数量"
+                style={{ height: 20 }}
+                onChangeText={(text) => setNum(text)}
+                value={Num}
+              />
               <View className="flex flex-row items-center justify-end">
                 <ScanIcon color="#3B6ADA" width={14} height={14} />
               </View>
@@ -181,7 +209,7 @@ export default function RecordList() {
             <ThinLine />
             <View className="mb-2 mt-4 flex flex-row items-center justify-between">
               <Text className="">钱包余额</Text>
-              <Text className="text-xs">0.0001BNB</Text>
+              <Text className="text-xs">0.0001 {ethName}</Text>
             </View>
           </View>
 
@@ -220,7 +248,7 @@ export default function RecordList() {
               <Text className="text-xs text-[#d6d6d6] dark:text-[#d6d6d6]">
                 $0.038
               </Text>
-              <Text className="text-xs">0.0000636 BNB</Text>
+              <Text className="text-xs">0.0000636 {ethName}</Text>
             </View>
 
             <View className="mt-4 flex flex-row items-center justify-between px-4">
@@ -230,7 +258,7 @@ export default function RecordList() {
               <Text className="text-xs text-[#d6d6d6] dark:text-[#d6d6d6]">
                 $0.038
               </Text>
-              <Text className="text-xs">0.0000636 BNB</Text>
+              <Text className="text-xs">0.0000636 {ethName}</Text>
             </View>
             <ThinLine />
             <View className="mb-2 mt-4 flex flex-row items-center justify-end">
@@ -251,7 +279,9 @@ export default function RecordList() {
             >
               <BottomSheetScrollView className=" px-4">
                 <View className="flex h-12 w-full flex-row items-center justify-center rounded-[8px]  dark:bg-[#222325] ">
-                  <Text>0.0000055 BNB</Text>
+                  <Text>
+                    {Num} {ethName}
+                  </Text>
                 </View>
                 <View className="flex flex-row py-4">
                   <Text className="mr-2 text-[#a7a7a7] dark:text-[#a7a7a7]">
@@ -260,7 +290,7 @@ export default function RecordList() {
                   <View>
                     <Text>{address}</Text>
                     <Text className="text-[#a7a7a7] dark:text-[#a7a7a7]">
-                      (BSC-2)
+                      ( {chainName})
                     </Text>
                   </View>
                 </View>
@@ -269,9 +299,9 @@ export default function RecordList() {
                     收款地址
                   </Text>
                   <View>
-                    <Text>0x1cD9644e0363c227BFEF3Ed36418C6 AF11096104</Text>
+                    <Text>{text}</Text>
                     <Text className="text-[#a7a7a7] dark:text-[#a7a7a7]">
-                      (BSC-2)
+                      ({chainName})
                     </Text>
                   </View>
                 </View>
@@ -288,13 +318,15 @@ export default function RecordList() {
                 </View>
                 <TouchableOpacity
                   onPress={async () => {
-                    const res = await transform(
+                    const res = await transform(chainId, address, text);
+                    router.replace('/');
+                    console.log(
+                      'chainId, address, text)',
                       chainId,
                       address,
-                      '0x1cD9644e0363c227BFEF3Ed36418C6'
+                      text,
+                      res
                     );
-                    router.replace('/');
-                    console.log(res, '0x1cD9644e0363c227BFEF3Ed36418C6');
                   }}
                   className="text-md flex h-12 w-full items-center justify-center rounded-md bg-[#3B6ADA] px-3  "
                 >
@@ -329,7 +361,7 @@ export default function RecordList() {
                 <Text className="my-2">当前网络</Text>
                 <View className="mb-4 flex h-12 w-full flex-row items-center justify-start rounded-[8px]  dark:bg-[#222325] ">
                   <Text className="px-4 text-[#a7a7a7] dark:text-[#a7a7a7]">
-                    BSC
+                    {chainName}
                   </Text>
                 </View>
 
