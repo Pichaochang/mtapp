@@ -144,11 +144,15 @@ export default function Feed() {
     )}`;
   };
 
-  const getHomeData = async () => {
+  const getHomeData = async (item: any) => {
     setHomeList([]);
+    console.log('getHomeDatastarrt', chain.chainId, selectWallet.address);
+
     const chainId = chain.chainId || (getItem('selectChain') || {}).chainId;
     const address =
-      selectWallet.address || (getItem('selectWallet') || {}).address;
+      item.address ||
+      selectWallet.address ||
+      (getItem('selectWallet') || {}).address;
     console.log('getHomeData1', chainId, address);
     if (!chainId || !address) return;
     // chainId=2&address=0x0B4b782bCadBfdCc3556aD66F34cc39BA95DAB36
@@ -166,17 +170,17 @@ export default function Feed() {
   };
   const walletItem = (item, index): any => (
     <TouchableOpacity
-      key={index}
+      key={item.address}
       className="mb-2 rounded-[8px] bg-[#f2f4f6] p-4 dark:bg-[#18191b]"
-      onPress={() => {
-        setHomeList([]);
-        setSelectWallet(item);
-        setItem('selectWallet', item);
-        console.log('selectWallet-========', selectWallet);
+      onPress={async () => {
+        await setHomeList([]);
+        await setSelectWallet({ ...item });
+        await setItem('selectWallet', { ...item });
+        console.log('selectWallet-========', item, selectWallet);
         dismiss();
         setTimeout(() => {
-          getHomeData();
-        }, 50);
+          getHomeData(item);
+        }, 500);
       }}
     >
       <Text>{chain.chainName}</Text>
