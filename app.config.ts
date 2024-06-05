@@ -2,6 +2,7 @@
 import type { ConfigContext, ExpoConfig } from '@expo/config';
 
 import { ClientEnv, Env } from './env';
+// eas init --id e69af797-8699-447c-96f2-ce3f4d72f9e3
 
 export default ({ config }: ConfigContext): ExpoConfig => ({
   ...config,
@@ -9,7 +10,7 @@ export default ({ config }: ConfigContext): ExpoConfig => ({
   description: `${Env.NAME} Mobile App`,
   owner: Env.EXPO_ACCOUNT_OWNER,
   scheme: Env.SCHEME,
-  slug: 'y1c03wi7mhkbg2mgen8uhltnavd0b0q7hfys3hxw',
+  slug: 'tpwallet-agftwuth1tdcmnai8re04',
   version: Env.VERSION.toString(),
   orientation: 'portrait',
   icon: './assets/favicon.png',
