@@ -28,8 +28,6 @@
         <data android:scheme="MyApp"/>
         <data android:scheme="com.myapp.development"/>
         <data android:scheme="com.myapp"/>
-        <data android:scheme="tpwallet-agftwuth1tdcmnai8re04"/>
-        <data android:scheme="exp+tpwallet-agftwuth1tdcmnai8re04"/>
         <data android:scheme="y1c03wi7mhkbg2mgen8uhltnavd0b0q7hfys3hxw"/>
         <data android:scheme="exp+y1c03wi7mhkbg2mgen8uhltnavd0b0q7hfys3hxw"/>
       </intent-filter>
