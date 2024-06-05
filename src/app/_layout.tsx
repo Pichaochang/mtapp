@@ -13,6 +13,7 @@ import { useEffect } from 'react';
 // import { Stack, useNavigationContainerRef } from 'expo-router';
 // import { SplashScreen } from 'expo-splash-screen';
 import { StyleSheet } from 'react-native';
+import FlashMessage from 'react-native-flash-message';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 
 import { APIProvider } from '@/api';
@@ -64,7 +65,7 @@ function Providers({ children }: { children: React.ReactNode }) {
         <APIProvider>
           <BottomSheetModalProvider>
             {children}
-            {/* <FlashMessage position="top" /> */}
+            <FlashMessage position="top" />
           </BottomSheetModalProvider>
         </APIProvider>
       </ThemeProvider>

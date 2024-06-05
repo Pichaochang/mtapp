@@ -6,6 +6,7 @@ import { useColorScheme } from 'nativewind';
 import React, { useEffect, useState } from 'react';
 import { StyleSheet, TouchableOpacity } from 'react-native';
 import { TextInput } from 'react-native';
+import { showMessage } from 'react-native-flash-message';
 
 import { transform } from '@/api';
 import { getItem } from '@/core/storage';
@@ -126,6 +127,7 @@ export default function RecordList() {
   return (
     <>
       <FocusAwareStatusBar />
+
       {/* 头部 */}
       <View className="flex h-20 flex-row  items-center px-4 pt-12 ">
         <View className="flex h-full w-1/3 flex-row items-center">
@@ -384,6 +386,13 @@ export default function RecordList() {
       </ScrollView>
       <BottomButton
         onPress={() => {
+          if (!text) {
+            showMessage({
+              message: '请输入地址',
+              type: 'danger',
+            });
+            return;
+          }
           dismiss1();
           present2();
         }}

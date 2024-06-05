@@ -150,7 +150,7 @@ export default function Feed() {
 
     const chainId = chain.chainId || (getItem('selectChain') || {}).chainId;
     const address =
-      item.address ||
+      (item || {}).address ||
       selectWallet.address ||
       (getItem('selectWallet') || {}).address;
     console.log('getHomeData1', chainId, address);
