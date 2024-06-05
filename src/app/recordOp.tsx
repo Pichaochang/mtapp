@@ -31,6 +31,7 @@ export default function RecordList() {
   const [chainName] = useState((getItem('selectChain') || {}).chainName);
 
   const [address] = useState((getItem('selectWallet') || {}).address);
+  console.log('selectWallet', getItem('selectWallet'));
   const [text, setText] = useState('');
   const [Num, setNum] = useState('');
 
@@ -286,12 +287,14 @@ export default function RecordList() {
                     {Num} {ethName}
                   </Text>
                 </View>
-                <View className="flex flex-row py-4">
+                <View className="flex-wra flex flex-row py-4">
                   <Text className="mr-2 text-[#a7a7a7] dark:text-[#a7a7a7]">
                     付款地址
                   </Text>
-                  <View>
-                    <Text>{address}</Text>
+                  <View className="flex-1">
+                    <Text className="flex flex-wrap" numberOfLines={10}>
+                      {address}
+                    </Text>
                     <Text className="text-[#a7a7a7] dark:text-[#a7a7a7]">
                       ( {walletname})
                     </Text>
@@ -301,7 +304,7 @@ export default function RecordList() {
                   <Text className="mr-2 text-[#a7a7a7] dark:text-[#a7a7a7]">
                     收款地址
                   </Text>
-                  <View>
+                  <View className="flex-1">
                     <Text>{text}</Text>
                     <Text className="text-[#a7a7a7] dark:text-[#a7a7a7]">
                       ({walletname})
