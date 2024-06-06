@@ -294,7 +294,7 @@ export default function RecordList() {
                       <View>
                         <View className="text-right ">
                           <Text className="text-[#61c69f] dark:text-[#fff]">
-                            -0 {ethName}
+                            -0 {sssswalet.assetName}
                           </Text>
                         </View>
                       </View>

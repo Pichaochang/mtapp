@@ -312,7 +312,8 @@ export default function Feed() {
                   <View className="mt-3 flex flex-row items-baseline">
                     <Text className="text-[10px] text-white">￥</Text>
                     <Text className="text-[30px] text-white">
-                      {selectWallet && selectWallet.balanceOf}
+                      {/* {selectWallet && selectWallet.balanceOf} */}
+                      {totalValuation}
                     </Text>
                   </View>
                 </View>
