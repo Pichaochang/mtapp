@@ -108,9 +108,9 @@ export default function Feed() {
     <View className=" w-full" key={index}>
       <TouchableOpacity
         onPress={() => {
-          setHomeList([]);
+          // setHomeList([]);
           setChain(item);
-          setInitData(item);
+          // setInitData(item);
         }}
       >
         <View
@@ -173,6 +173,7 @@ export default function Feed() {
       key={item.address + index}
       className="mb-2 rounded-[8px] bg-[#f2f4f6] p-4 dark:bg-[#18191b]"
       onPress={async () => {
+        setItem('selectChain', chain);
         await setHomeList([]);
         await setSelectWallet({ ...item });
         await setItem('selectWallet', { ...item });
@@ -296,6 +297,7 @@ export default function Feed() {
                     <View className="flex flex-row items-center text-xs text-white">
                       <Text className="text-white">
                         {selectWallet && selectWallet.name}
+                        {/* {selectWallet.valuation} */}
                       </Text>
                       <Image
                         className="ml-1 h-3 w-3"
@@ -310,7 +312,7 @@ export default function Feed() {
                   <View className="mt-3 flex flex-row items-baseline">
                     <Text className="text-[10px] text-white">￥</Text>
                     <Text className="text-[30px] text-white">
-                      {totalValuation}
+                      {selectWallet && selectWallet.balanceOf}
                     </Text>
                   </View>
                 </View>

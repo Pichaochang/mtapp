@@ -25,6 +25,8 @@ import {
 import { ArrowLeft, ArrowRight, RefreshIcon, ScanIcon } from '@/ui/icons';
 
 export default function RecordList() {
+  const [sssswalet, setsssswalet] = useState({});
+
   const [walletname] = useState((getItem('selectWallet') || {}).name);
   const [chainId] = useState((getItem('selectChain') || {}).chainId);
   const [ethName] = useState((getItem('selectChain') || {}).ethName);
@@ -35,7 +37,11 @@ export default function RecordList() {
   const [text, setText] = useState('');
   const [Num, setNum] = useState('');
 
-  useEffect(() => { }, []);
+  useEffect(() => {
+    const s: any = getItem('sssswalet') || {};
+    setsssswalet(s);
+    console.log('sadsad', s);
+  }, []);
   const RadioExample = () => {
     const [selected, setSelected] = React.useState(false);
     return (
@@ -213,7 +219,9 @@ export default function RecordList() {
             <ThinLine />
             <View className="mb-2 mt-4 flex flex-row items-center justify-between">
               <Text className="">钱包余额</Text>
-              <Text className="text-xs">0.0001 {ethName}</Text>
+              <Text className="text-xs">
+                {sssswalet.quantity} {ethName}
+              </Text>
             </View>
           </View>
 

@@ -79,6 +79,16 @@ export default function RecordList() {
       address.length
     )}`;
   };
+  function calculateTokenValue(tokenAmount, tokenPrice) {
+    if (!tokenAmount) return 0;
+    // 计算每个token的价格
+    var pricePerToken = Number(tokenPrice) / Number(tokenAmount);
+
+    // 计算1个token的价值
+    var oneTokenPrice = Number((tokenAmount * pricePerToken).toFixed(6));
+
+    return oneTokenPrice;
+  }
   const styles2 = StyleSheet.create({
     container: {
       width: '100%',
@@ -184,9 +194,13 @@ export default function RecordList() {
               <View className="mb-2 mt-4 flex flex-row items-center justify-between">
                 <Text className="">钱包余额</Text>
                 <View className="flex items-center text-right">
-                  <Text className="text-right text-xs">0.0001{ethName}</Text>
+                  <Text className="text-right text-xs">
+                    {sssswalet.quantity}
+
+                    {sssswalet.assetName}
+                  </Text>
                   <Text className="text-right text-xs text-[#a3a3a3] dark:text-[#474849]">
-                    ≈¥27.45
+                    ≈¥{sssswalet.valuation}
                   </Text>
                 </View>
               </View>
@@ -201,7 +215,11 @@ export default function RecordList() {
                   />
                   <Text>DEX价格:</Text>
                   <Text className="text-[#CA2832] dark:text-[#CA2832]">
-                    ¥4167.39
+                    ¥
+                    {calculateTokenValue(
+                      sssswalet.quantity,
+                      sssswalet.valuation
+                    )}
                   </Text>
                 </View>
                 <View className="flex flex-row items-center justify-end">
