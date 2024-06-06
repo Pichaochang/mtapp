@@ -344,6 +344,7 @@ export default function RecordList() {
           <Modal
             snapPoints={['70%']} // optional
             title="转账安全提示"
+            backgroundStyle={{ backgroundColor: 'rgba(0,0,0,0.5)' }}
             ref={ref2}
           >
             {/* <View className="z-0 -mt-2 flex h-14  flex-row justify-around rounded-md dark:bg-[#232428]"> */}

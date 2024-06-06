@@ -275,7 +275,7 @@ export default function RecordList() {
                       <View>
                         <View className="text-right ">
                           <Text className="text-[#61c69f] dark:text-[#fff]">
-                            -0 ETH
+                            -0 {chainId.ethName}
                           </Text>
                         </View>
                       </View>

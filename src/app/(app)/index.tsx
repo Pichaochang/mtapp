@@ -183,7 +183,7 @@ export default function Feed() {
         }, 500);
       }}
     >
-      <Text>{chain.chainName}</Text>
+      <Text>{item.name}</Text>
       <View className="flex flex-row items-center ">
         <Text className=" text-[#bbbdbe] dark:text-[#38393a] ">
           {formatAddress(item.address)}
@@ -262,7 +262,7 @@ export default function Feed() {
                     {/* 右侧滚动区域 */}
                     <View className="px-4">
                       <View className="flex flex-row items-center justify-between py-2 ">
-                        <Text>{chain.ethName}</Text>
+                        <Text>{chain.chainName}</Text>
                         <PlusPlusIcon
                           className="mr-1 text-xs"
                           color={iconColor}
