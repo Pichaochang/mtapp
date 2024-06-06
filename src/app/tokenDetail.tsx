@@ -21,8 +21,8 @@ import { ArrowLeft, ArrowRight, CopyIcon, SearchIcon } from '@/ui/icons';
 export default function RecordList() {
   const [sssswalet, setsssswalet] = useState({});
   const [list, setList] = useState([]);
+  const ethName = (getItem('selectChain') || {}).ethName;
   const initData = async () => {
-    const ethName = (getItem('selectChain') || {}).ethName;
     const chainId = (getItem('selectChain') || {}).chainId;
     const address = (getItem('selectWallet') || {}).address;
     console.log('selectChain-selectWallet', chainId, address);
@@ -184,7 +184,7 @@ export default function RecordList() {
               <View className="mb-2 mt-4 flex flex-row items-center justify-between">
                 <Text className="">钱包余额</Text>
                 <View className="flex items-center text-right">
-                  <Text className="text-right text-xs">0.0001BNB</Text>
+                  <Text className="text-right text-xs">0.0001{ethName}</Text>
                   <Text className="text-right text-xs text-[#a3a3a3] dark:text-[#474849]">
                     ≈¥27.45
                   </Text>
