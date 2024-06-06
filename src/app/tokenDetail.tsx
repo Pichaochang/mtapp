@@ -79,15 +79,13 @@ export default function RecordList() {
       address.length
     )}`;
   };
-  function calculateTokenValue(tokenAmount, tokenPrice) {
+  function calculateTokenValue(tokenAmount, totalPrice) {
     if (!tokenAmount) return 0;
-    // 计算每个token的价格
-    var pricePerToken = Number(tokenPrice) / Number(tokenAmount);
-
-    // 计算1个token的价值
-    var oneTokenPrice = Number((tokenAmount * pricePerToken).toFixed(6));
-
-    return oneTokenPrice;
+    // 计算每个 token 的价格
+    var pricePerToken = Number(
+      (Number(totalPrice || 0) / Number(tokenAmount)).toFixed(6)
+    );
+    return pricePerToken;
   }
   const styles2 = StyleSheet.create({
     container: {
