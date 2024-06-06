@@ -333,6 +333,9 @@ export default function Feed() {
                     <TranferIcon className="mr-1 text-xs" color={iconColor} />
                     <Text
                       onPress={() => {
+                        if (homeList.length) {
+                          setItem('sssswalet', homeList[0]);
+                        }
                         router.push('/recordList');
                       }}
                       className="text-xs"
@@ -447,51 +450,53 @@ export default function Feed() {
             </View>
 
             {/* token list */}
-            {homeList.map((item: any, index) => (
-              <View
-                className="w-full bg-[#fff] px-2 dark:bg-[#17191a]"
-                key={index}
-              >
-                {/* <Text>{item.imgUrl}</Text> */}
-                <View className="flex  w-full flex-row items-center justify-center">
-                  <Image
-                    className="flex-0  my-2 mr-3 h-[40x] w-[40px] rounded-[20px]"
-                    source={{
-                      uri: item.imgUrl,
-                    }}
-                    style={{
-                      height: 40,
-                      width: 40,
-                    }}
-                    contentFit="contain"
-                  />
-
-                  <View className=" w-full flex-1  py-2	dark:border-[#232428]">
-                    <TouchableOpacity
-                      onPress={() => {
-                        console.log('myw', item);
-                        setItem('sssswalet', item);
-                        router.push('/tokenDetail');
+            <View className="flex-1">
+              {homeList.map((item: any, index) => (
+                <View
+                  className="w-full bg-[#fff] px-2 dark:bg-[#17191a]"
+                  key={index}
+                >
+                  {/* <Text>{item.imgUrl}</Text> */}
+                  <View className="flex  w-full flex-row items-center justify-center">
+                    <Image
+                      className="flex-0  my-2 mr-3 h-[40x] w-[40px] rounded-[20px]"
+                      source={{
+                        uri: item.imgUrl,
                       }}
-                      className="flex  flex-row items-center justify-between"
-                    >
-                      <Text className="text-[#3b3b3b] dark:text-[#fff]">
-                        {item.assetName}
-                      </Text>
-                      <View>
-                        <View className="text-right text-[#3b3b3b] dark:text-[#fff]">
-                          <Text className="text-right">{item.quantity}</Text>
-                        </View>
-                        <Text className="text-right text-xs text-[#a7a7a7] dark:text-[#717172]">
-                          ≈¥{item.valuation}
+                      style={{
+                        height: 40,
+                        width: 40,
+                      }}
+                      contentFit="contain"
+                    />
+
+                    <View className=" w-full flex-1  py-2	dark:border-[#232428]">
+                      <TouchableOpacity
+                        onPress={() => {
+                          console.log('myw', item);
+                          setItem('sssswalet', item);
+                          router.push('/tokenDetail');
+                        }}
+                        className="flex  flex-row items-center justify-between"
+                      >
+                        <Text className="text-[#3b3b3b] dark:text-[#fff]">
+                          {item.assetName}
                         </Text>
-                      </View>
-                    </TouchableOpacity>
-                    <ThinLine />
+                        <View>
+                          <View className="text-right text-[#3b3b3b] dark:text-[#fff]">
+                            <Text className="text-right">{item.quantity}</Text>
+                          </View>
+                          <Text className="text-right text-xs text-[#a7a7a7] dark:text-[#717172]">
+                            ≈¥{item.valuation}
+                          </Text>
+                        </View>
+                      </TouchableOpacity>
+                      <ThinLine />
+                    </View>
                   </View>
                 </View>
-              </View>
-            ))}
+              ))}
+            </View>
           </View>
         </SafeAreaView>
       </ScrollView>
