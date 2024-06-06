@@ -170,7 +170,7 @@ export default function Feed() {
   };
   const walletItem = (item, index): any => (
     <TouchableOpacity
-      key={item.address}
+      key={item.address + index}
       className="mb-2 rounded-[8px] bg-[#f2f4f6] p-4 dark:bg-[#18191b]"
       onPress={async () => {
         await setHomeList([]);
