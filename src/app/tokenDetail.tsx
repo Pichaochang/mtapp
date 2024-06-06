@@ -22,6 +22,7 @@ export default function RecordList() {
   const [sssswalet, setsssswalet] = useState({});
   const [list, setList] = useState([]);
   const initData = async () => {
+    const ethName = (getItem('selectChain') || {}).ethName;
     const chainId = (getItem('selectChain') || {}).chainId;
     const address = (getItem('selectWallet') || {}).address;
     console.log('selectChain-selectWallet', chainId, address);
@@ -275,7 +276,7 @@ export default function RecordList() {
                       <View>
                         <View className="text-right ">
                           <Text className="text-[#61c69f] dark:text-[#fff]">
-                            -0 {chainId.ethName}
+                            -0 {ethName}
                           </Text>
                         </View>
                       </View>
