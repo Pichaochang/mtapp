@@ -83,7 +83,7 @@ export default function RecordList() {
     if (!tokenAmount) return 0;
     // 计算每个 token 的价格
     var pricePerToken = Number(
-      (Number(totalPrice || 0) / Number(tokenAmount)).toFixed(6)
+      (Number(totalPrice || 0) / Number(tokenAmount)).toFixed(3)
     );
     return pricePerToken;
   }
@@ -140,6 +140,43 @@ export default function RecordList() {
       </View>
     );
   };
+  function getTodayDateString() {
+    let now = new Date();
+    let year = now.getFullYear();
+    let month = now.getMonth() + 1; // 月份从0开始，所以加1
+    let day = now.getDate();
+    return `${year}-${month}-${day}`;
+  }
+
+  // 基于日期字符串生成固定的伪随机数（范围在0到3%之间）
+  // 基于日期字符串生成固定的伪随机数（范围在0到3%之间）
+  function getDailyIncreasePercent(dateString) {
+    // 将日期字符串转换为一个简单的哈希值
+    let hash = 0;
+    for (let i = 0; i < dateString.length; i++) {
+      hash = dateString.charCodeAt(i) + ((hash << 5) - hash);
+    }
+    // 生成0到1之间的浮点数
+    let randomPercent = (hash % 1000) / 1000;
+    // 转换到0到3%的范围内
+    let percent = randomPercent * 3;
+    // 检查最后一个数字是否为偶数
+    if (parseInt(dateString.slice(-1)) % 2 === 0) {
+      // 最后一个数字为偶数，保持正值
+      return percent;
+    } else {
+      // 最后一个数字为奇数，转换为负值
+      return -percent;
+    }
+  }
+  let todayDateString = getTodayDateString();
+  // let dailyIncreasePercent =
+  //   getDailyIncreasePercent(todayDateString).toFixed(2); // 保留两位小数
+
+  const [fixNum, setFixNum] = useState(
+    getDailyIncreasePercent(todayDateString).toFixed(2)
+  );
+  // console.log(todayDateString, dailyIncreasePercent);
   return (
     <>
       <FocusAwareStatusBar />
@@ -190,7 +227,7 @@ export default function RecordList() {
               <ThinLine />
 
               <View className="mb-2 mt-4 flex flex-row items-center justify-between">
-                <Text className="">钱包余额</Text>
+                <Text className="">资产余额</Text>
                 <View className="flex items-center text-right">
                   <Text className="text-right text-xs">
                     {sssswalet.quantity}
@@ -204,28 +241,45 @@ export default function RecordList() {
               </View>
             </View>
 
-            <View className="mt-2 bg-[#fff]  px-4 py-2 dark:bg-[#18191B] ">
+            <View className="mt-2  bg-[#fff]  p-4 dark:bg-[#18191B]">
               <View className="flex flex-row items-center justify-between">
                 <View className="flex flex-row items-center ">
-                  <Image
+                  {/* <Image
                     className="flex-0  my-2 mr-3 h-10 w-10 rounded-[20px]"
                     source={require('../assets/home/dex.png')}
-                  />
-                  <Text>DEX价格:</Text>
-                  <Text className="text-[#CA2832] dark:text-[#CA2832]">
-                    ¥
-                    {calculateTokenValue(
-                      sssswalet.quantity,
-                      sssswalet.valuation
-                    )}
-                  </Text>
+                  /> */}
+                  <Text>市场价格:</Text>
                 </View>
                 <View className="flex flex-row items-center justify-end">
-                  <Text className="mr-2 text-xs dark:text-[#a7a7a7]">
+                  {/* <Text className="mr-2 text-xs dark:text-[#a7a7a7]">
                     去交易
-                  </Text>
-                  {/* <ArrowRight color={iconColor} width={10} height={10} /> */}
-                  <ArrowRight color="#a7a7a7" width={7} height={7} />
+                  </Text> */}
+                  <View className="flex flex-col">
+                    <Text className=" font-inter">
+                      {calculateTokenValue(
+                        sssswalet.quantity,
+                        sssswalet.valuation
+                      )}
+                    </Text>
+                    <Text className=" mr-2 text-xs text-[#a7a7a7] dark:text-[#717172]">
+                      $
+                      {calculateTokenValue(
+                        sssswalet.quantity,
+                        sssswalet.valuation
+                      )}
+                    </Text>
+                  </View>
+
+                  {Number(fixNum) > 0 ? (
+                    <Text className="mx-3 rounded-[8px] bg-[#6fb090] px-4 py-2 text-white">
+                      {fixNum}%
+                    </Text>
+                  ) : (
+                    <Text className="mx-3 rounded-[8px] bg-[#e5615b] px-4 py-2 text-white">
+                      {fixNum}%
+                    </Text>
+                  )}
+                  <ArrowRight color="#a7a7a7" width={14} height={14} />
                 </View>
               </View>
             </View>

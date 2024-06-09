@@ -289,7 +289,7 @@ export default function Feed() {
               </View>
             </Modal>
           </View>
-          <View className="flex-1 bg-[#f4f4f4] font-inter dark:bg-[#17191a]">
+          <View className="-mt-4 flex-1 bg-[#f4f4f4] font-inter dark:bg-[#17191a]">
             <View className="bg-[#f4f4f4] dark:bg-[#17191a]">
               <View className=" z-10 h-32 w-full rounded-lg bg-[#3B6ACF] p-3 pt-0">
                 <View className="p-4">
