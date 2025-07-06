@@ -37,7 +37,7 @@ const BUNDLE_ID = 'com.myapp'; // ios bundle id
 const PACKAGE = 'com.myapp'; // android package name
 const NAME = 'TokenPocket'; // app name
 const EXPO_ACCOUNT_OWNER = 'pichaochang1'; // expo account owner
-const EAS_PROJECT_ID = '2058e50d-2323-40a1-87e4-40344d07b616'; // eas project id
+const EAS_PROJECT_ID = '13ea957e-22a2-485e-9072-43c409ac171a'; // eas project id
 const SCHEME = 'y1c03wi7mhkbg2mgen8uhltnavd0b0q7hfys3hxw'; // app scheme
 
 /**
