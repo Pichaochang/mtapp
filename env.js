@@ -40,6 +40,7 @@ const EXPO_ACCOUNT_OWNER = 'pichaochang1'; // expo account owner
 const EAS_PROJECT_ID = '13ea957e-22a2-485e-9072-43c409ac171a'; // eas project id
 const SCHEME = 'y1c03wi7mhkbg2mgen8uhltnavd0b0q7hfys3hxw'; // app scheme
 
+
 /**
  * We declare a function withEnvSuffix that will add a suffix to the variable name based on the APP_ENV
  * Add a suffix to variable env based on APP_ENV
